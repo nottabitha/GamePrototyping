@@ -11,7 +11,10 @@ public class ropeSystem : MonoBehaviour
 	public Transform crosshair;
 	public SpriteRenderer crosshairSprite;
 	public playerController playerMovement;
-	private bool ropeAttached;
+    public Rigidbody2D playerRb;
+    public float speed;
+
+    private bool ropeAttached;
 	private Vector2 playerPosition;
 	private Rigidbody2D ropeHingeAnchorRb;
 	private SpriteRenderer ropeHingeAnchorSprite;
@@ -55,8 +58,16 @@ public class ropeSystem : MonoBehaviour
 		{
 			crosshairSprite.enabled = false;
 		}
-		
-		HandleInput(aimDirection);
+
+        if (playerMovement.isSwinging)
+        {
+            float step = speed * Time.fixedDeltaTime;
+            Vector2 ropePosition = Vector2.MoveTowards(playerRb.position, ropeHingeAnchorRb.position, step);
+            playerRb.MovePosition(ropePosition);
+        }
+
+
+        HandleInput(aimDirection);
 		UpdateRopePositions();
 	}
 	
@@ -91,13 +102,17 @@ public class ropeSystem : MonoBehaviour
 				ropeAttached = true;
 				if (!ropePositions.Contains(hit.point))
 				{
-					// 4
-					// Jump slightly to distance the player a little from the ground after grappling to something.
-					transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
-					ropePositions.Add(hit.point);
+                    // 4
+                    // Jump slightly to distance the player a little from the ground after grappling to something.
+                    //transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
+                    //float step = speed * Time.fixedDeltaTime;
+                    //Vector2 ropePosition = Vector2.MoveTowards(playerRb.position, ropeHingeAnchorRb.position, step);
+                    //playerRb.MovePosition(ropePosition);
+                    ropePositions.Add(hit.point);
 					ropeJoint.distance = Vector2.Distance(playerPosition, hit.point);
 					ropeJoint.enabled = true;
 					ropeHingeAnchorSprite.enabled = true;
+                    playerMovement.isSwinging = true;
 				}
 			}
 			// 5
@@ -109,7 +124,7 @@ public class ropeSystem : MonoBehaviour
 			}
 		}
 		
-		if (Input.GetMouseButton(1))
+		if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
 		{
 			ResetRope();
 		}
