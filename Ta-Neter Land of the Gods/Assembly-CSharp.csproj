@@ -60,7 +60,7 @@
      <Compile Include="Assets\Scripts\playerIdleBehaviour.cs" />
      <Compile Include="Assets\Scripts\ropeSystem.cs" />
      <Compile Include="Assets\Scripts\skeletonScript.cs" />
-     <None Include="Assets\Hero and Opponents\license.txt" />
+     <None Include="Assets\Asset Store\Hero and Opponents\license.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/Ta-Neter/GamePrototyping/Ta-Neter Land of the Gods/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
