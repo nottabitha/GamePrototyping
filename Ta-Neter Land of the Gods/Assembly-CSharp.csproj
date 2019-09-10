@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Animator\playerIdleState.cs" />
+     <Compile Include="Assets\Scripts\backgroundParallax.cs" />
      <Compile Include="Assets\Scripts\playerController.cs" />
      <Compile Include="Assets\Scripts\playerIdleBehaviour.cs" />
      <Compile Include="Assets\Scripts\ropeSystem.cs" />
@@ -63,6 +64,9 @@
      <None Include="Assets\Asset Store\Hero and Opponents\license.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/Ta-Neter/GamePrototyping/Ta-Neter Land of the Gods/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Cinemachine">
+ <HintPath>D:/Ta-Neter/GamePrototyping/Ta-Neter Land of the Gods/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>D:/Ta-Neter/GamePrototyping/Ta-Neter Land of the Gods/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
@@ -75,6 +79,9 @@
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
  <HintPath>D:/Ta-Neter/GamePrototyping/Ta-Neter Land of the Gods/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.cinemachine.editor">
+ <HintPath>D:/Ta-Neter/GamePrototyping/Ta-Neter Land of the Gods/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>D:/Ta-Neter/GamePrototyping/Ta-Neter Land of the Gods/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>

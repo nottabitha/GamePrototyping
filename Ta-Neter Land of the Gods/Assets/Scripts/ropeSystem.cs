@@ -24,9 +24,11 @@ public class ropeSystem : MonoBehaviour
 	private float ropeMaxCastDistance = 20f;
 	private List<Vector2> ropePositions = new List<Vector2>();
 	private bool distanceSet;
-
+	private Camera cam;
+	
 	void Awake()
 	{
+		cam = Camera.main;
 		ropeJoint.enabled = false;
 		playerPosition = transform.position;
 		ropeHingeAnchorRb = ropeHingeAnchor.GetComponent<Rigidbody2D>();
@@ -77,11 +79,13 @@ public class ropeSystem : MonoBehaviour
 		{
 			crosshairSprite.enabled = true;
 		}
+		Vector3 mouse = Input.mousePosition;
+		Vector3 mousePosition = cam.ScreenToWorldPoint(mouse);
 		
-		var x = transform.position.x + 5f * Mathf.Cos(aimAngle);
-		var y = transform.position.y + 5f * Mathf.Sin(aimAngle);
+		//var x = transform.position.x + 5f * Mathf.Cos(aimAngle);
+		//var y = transform.position.y + 5f * Mathf.Sin(aimAngle);
 		
-		var crossHairPosition = new Vector3(x, y, 0);
+		var crossHairPosition = new Vector3(mousePosition.x, mousePosition.y, 0);
 		crosshair.transform.position = crossHairPosition;
 	}
 	
