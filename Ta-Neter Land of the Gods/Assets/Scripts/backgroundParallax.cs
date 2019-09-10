@@ -38,7 +38,8 @@ public class backgroundParallax : MonoBehaviour
 	}
 	
 	private void Update()
-	{
+	{	
+		
 		if (parallax)
 		{
 			float deltaX = cameraTransform.position.x - lastCameraX;
