@@ -9,14 +9,20 @@ public class skeletonScript : MonoBehaviour
 	public float minAttackCooldown = 0.5f;
 	public float maxAttackCooldown = 2f;
 	public float speed = 5;
-	
-	private float aiCooldown;
+    public Rigidbody2D waypoint1;
+    public Rigidbody2D waypoint2;
+
+    private float aiCooldown;
 	private bool isAttacking;
 	private bool isWalking;
-	
-	void Awake()
+    private bool isWalkingLeft = false;
+    private bool isWalkingRight = true;
+
+    void Awake()
 	{
 		animator = GetComponent<Animator>();
+        waypoint1 = GetComponent<Rigidbody2D>();
+        waypoint2 = GetComponent<Rigidbody2D>();
 	}		
     // Start is called before the first frame update
     void Start()
@@ -55,7 +61,7 @@ public class skeletonScript : MonoBehaviour
     
 	void Direction ()
 	{
-		if (Input.GetKey(KeyCode.D))
+		if (isWalkingRight)
 		{
 			isWalking = true;
 			if (transform.localScale.x != 4.261748)
@@ -65,7 +71,7 @@ public class skeletonScript : MonoBehaviour
 			animator.SetBool("Walking", isWalking);
 			transform.position += Vector3.right * speed * Time.deltaTime;
 		}
-		else if (Input.GetKey(KeyCode.A))
+		else if (isWalkingLeft)
 		{
 			isWalking = true;
 			if (transform.localScale.x != -4.261748)
@@ -84,6 +90,16 @@ public class skeletonScript : MonoBehaviour
 	
 	void OnTriggerEnter2D(Collider2D otherCollider2D)
 	{
-		animator.SetTrigger("Hit");
+        if (waypoint1)
+        {
+            isWalkingLeft = true;
+            isWalkingRight = false;
+        }
+        if (waypoint2)
+        {
+            isWalkingRight = true;
+            isWalkingLeft = false;
+        }
+        animator.SetTrigger("Hit");
 	}
 }
