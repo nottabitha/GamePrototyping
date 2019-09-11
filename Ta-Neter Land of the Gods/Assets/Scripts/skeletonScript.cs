@@ -9,29 +9,29 @@ public class skeletonScript : MonoBehaviour
 	public float minAttackCooldown = 0.5f;
 	public float maxAttackCooldown = 2f;
 	public float speed = 5;
-    public Rigidbody2D waypoint1;
-    public Rigidbody2D waypoint2;
+    public Transform[] waypoints;
+    int currentWaypointIndex;
+
 
     private float aiCooldown;
 	private bool isAttacking;
 	private bool isWalking;
-    private bool isWalkingLeft = false;
-    private bool isWalkingRight = true;
+    private Transform currentWaypoint;
 
     void Awake()
 	{
 		animator = GetComponent<Animator>();
-        waypoint1 = GetComponent<Rigidbody2D>();
-        waypoint2 = GetComponent<Rigidbody2D>();
 	}		
     // Start is called before the first frame update
     void Start()
     {
         //collider2D.enabled = false;
-        
+        currentWaypointIndex = 0;
+        currentWaypoint = waypoints[currentWaypointIndex];
         isWalking = false;
 		isAttacking = false;
 		aiCooldown = maxAttackCooldown;
+        transform.parent.position = currentWaypoint.position;
     }
 
     // Update is called once per frame
@@ -61,27 +61,41 @@ public class skeletonScript : MonoBehaviour
     
 	void Direction ()
 	{
-		if (isWalkingRight)
+        if (Vector3.Distance(transform.parent.position, currentWaypoint.position) < .1f)
+        {
+            if (currentWaypointIndex + 1 < waypoints.Length)
+            {
+                currentWaypointIndex++;
+            }
+            else
+            {
+                currentWaypointIndex = 0;
+            }
+
+            currentWaypoint = waypoints[currentWaypointIndex];
+        }
+
+		if (currentWaypointIndex == 0)
 		{
 			isWalking = true;
-			if (transform.localScale.x != 4.261748)
+			if (transform.parent.localScale.x != -0.91902f)
 			{
-				transform.localScale = new Vector3(4.261748f, 4.181867f, 0);
+				transform.parent.localScale = new Vector3(-0.91902f, 0.91902f, 0);
 			}
-			animator.SetBool("Walking", isWalking);
-			transform.position += Vector3.right * speed * Time.deltaTime;
-		}
-		else if (isWalkingLeft)
-		{
-			isWalking = true;
-			if (transform.localScale.x != -4.261748)
-			{
-				transform.localScale = new Vector3(-4.261748f, 4.181867f, 0);
-			}
-			transform.position += Vector3.left * speed * Time.deltaTime;
+			transform.parent.position += Vector3.left * speed * Time.deltaTime;
 			animator.SetBool("Walking", isWalking);
 		}
-		else
+        else if (currentWaypointIndex == 1)
+        {
+            isWalking = true;
+            if (transform.parent.localScale.x != 0.91902f)
+            {
+                transform.parent.localScale = new Vector3(0.91902f, 0.91902f, 0);
+            }
+            animator.SetBool("Walking", isWalking);
+            transform.parent.position += Vector3.right * speed * Time.deltaTime;
+        }
+        else
 		{
         	isWalking = false;
 			animator.SetBool("Walking", isWalking);
@@ -90,16 +104,6 @@ public class skeletonScript : MonoBehaviour
 	
 	void OnTriggerEnter2D(Collider2D otherCollider2D)
 	{
-        if (waypoint1)
-        {
-            isWalkingLeft = true;
-            isWalkingRight = false;
-        }
-        if (waypoint2)
-        {
-            isWalkingRight = true;
-            isWalkingLeft = false;
-        }
         animator.SetTrigger("Hit");
 	}
 }
