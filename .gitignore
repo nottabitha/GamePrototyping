@@ -10,6 +10,11 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
+#un-ignore
+Library/expandedItems
+Library/assetDatabase3
+Library/CurrentLayout.dwlt
+
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
 
