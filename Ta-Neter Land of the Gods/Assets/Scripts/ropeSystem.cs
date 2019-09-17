@@ -54,7 +54,7 @@ public class ropeSystem : MonoBehaviour
 		// 6
 		if (!ropeAttached)
 		{
-			SetCrosshairPosition(aimAngle);
+			SetCrosshairPosition();
 		}
 		else
 		{
@@ -73,7 +73,7 @@ public class ropeSystem : MonoBehaviour
 		UpdateRopePositions();
 	}
 	
-	private void SetCrosshairPosition(float aimAngle)
+	private void SetCrosshairPosition()
 	{
 		if (!crosshairSprite.enabled)
 		{
