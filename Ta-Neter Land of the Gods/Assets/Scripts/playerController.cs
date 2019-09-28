@@ -6,9 +6,15 @@ public class playerController : MonoBehaviour
 {
 	public float speed  = 5; 
 	public bool isSwinging;
-	
-	// Update is called once per frame
-	void Update()
+    public float maxVelocity;
+    private Rigidbody2D player;
+
+    // Update is called once per frame
+    private void Awake()
+    {
+        player = this.GetComponent<Rigidbody2D>();
+    }
+    void Update()
 	{
 		if (Input.GetKey(KeyCode.D))
 		{
@@ -19,4 +25,9 @@ public class playerController : MonoBehaviour
 			transform.position += Vector3.left * speed * Time.deltaTime;
 		}
 	}
+
+    private void FixedUpdate()
+    {
+        player.velocity = Vector3.ClampMagnitude(player.velocity, maxVelocity);
+    }
 }

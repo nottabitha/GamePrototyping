@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 837675499446889409}
   - component: {fileID: 1088384826249291186}
   - component: {fileID: 2758273779534361921}
+  - component: {fileID: 600223983}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -132,7 +133,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2758273778750944725}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.47, y: -2.24, z: 0}
   m_LocalScale: {x: 0.39101, y: 0.39101, z: 0.39101}
   m_Children:
@@ -177,7 +178,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: fbb764aae65789f4c924cbef7b89aae2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -204,11 +205,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 3
+  m_Material: {fileID: 6200000, guid: 20833768ecd42cb4eb2b8169d1d597be, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &2758273778750944729
 BoxCollider2D:
@@ -258,7 +259,7 @@ MonoBehaviour:
   ropeRenderer: {fileID: 1088384826249291186}
   ropeLayerMask:
     serializedVersion: 2
-    m_Bits: 513
+    m_Bits: 1537
 --- !u!114 &837675499446889421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,7 +329,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
@@ -406,6 +407,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &600223983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2758273778750944725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cebb06a05618a543a0cf840e2338c90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 4
+  numOfHearts: 7
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fullHeart: {fileID: 21300000, guid: 59df45975c13c3c40984da501c602076, type: 3}
+  emptyHeart: {fileID: 21300000, guid: 1c259b787d8ff8f47bad9c6d547c21c4, type: 3}
 --- !u!1 &3849565501818703360
 GameObject:
   m_ObjectHideFlags: 0
