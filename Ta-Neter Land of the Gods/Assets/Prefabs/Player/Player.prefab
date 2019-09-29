@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 1088384826249291186}
   - component: {fileID: 2758273779534361921}
   - component: {fileID: 600223983}
+  - component: {fileID: -4465749107098444878}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -435,6 +436,22 @@ MonoBehaviour:
   - {fileID: 0}
   fullHeart: {fileID: 21300000, guid: 59df45975c13c3c40984da501c602076, type: 3}
   emptyHeart: {fileID: 21300000, guid: 1c259b787d8ff8f47bad9c6d547c21c4, type: 3}
+--- !u!111 &-4465749107098444878
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2758273778750944725}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 83becf3cb8001a541911c8bc84f641f9, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 83becf3cb8001a541911c8bc84f641f9, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &3849565501818703360
 GameObject:
   m_ObjectHideFlags: 0
