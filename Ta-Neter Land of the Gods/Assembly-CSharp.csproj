@@ -58,6 +58,7 @@
      <Compile Include="Assets\Animator\playerIdleState.cs" />
      <Compile Include="Assets\Scripts\backgroundParallax.cs" />
      <Compile Include="Assets\Scripts\health.cs" />
+     <Compile Include="Assets\Scripts\menuManager.cs" />
      <Compile Include="Assets\Scripts\pauseMenu.cs" />
      <Compile Include="Assets\Scripts\playerController.cs" />
      <Compile Include="Assets\Scripts\playerIdleBehaviour.cs" />
