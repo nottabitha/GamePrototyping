@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/anubis level 1 finish.unity
+- path: Assets/Scenes/Level Boss.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
