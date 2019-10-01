@@ -8,6 +8,11 @@ public class menuManager : MonoBehaviour
 		Application.LoadLevel(1);
 	}
 
+	public void ControlsMenu() 
+	{
+		Application.LoadLevel(4);
+	}
+
 	public void Quit() 
 	{
 		Application.Quit();
