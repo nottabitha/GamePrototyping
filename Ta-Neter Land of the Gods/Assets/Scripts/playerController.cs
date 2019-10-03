@@ -8,7 +8,7 @@ public class playerController : MonoBehaviour
 	public bool isSwinging;
     public float maxVelocity;
     private Rigidbody2D player;
-    private health healthScript;
+    public health healthScript;
 
     // Update is called once per frame
     private void Awake()
