@@ -8,7 +8,7 @@ AnimationClip:
   m_PrefabAsset: {fileID: 0}
   m_Name: SkeletonAttack2
   serializedVersion: 6
-  m_Legacy: 0
+  m_Legacy: 1
   m_Compressed: 0
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
@@ -51,26 +51,8 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings:
-    - serializedVersion: 2
-      path: 0
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-    pptrCurveMapping:
-    - {fileID: 21300000, guid: 92c0b5bf591389a4e8beabc3a0cef886, type: 3}
-    - {fileID: 21300000, guid: cfa1a9013ddeca5458ec3c60edcae52c, type: 3}
-    - {fileID: 21300000, guid: 6f539dedf0dd41e419c8fbd2db58879b, type: 3}
-    - {fileID: 21300000, guid: bb718c45f6b1cd646b6f5a25ae0c7eba, type: 3}
-    - {fileID: 21300000, guid: c09086deaf910f24ca170aa2c440ed11, type: 3}
-    - {fileID: 21300000, guid: ab4b89c2327ac3547919e4e1170a1c20, type: 3}
-    - {fileID: 21300000, guid: 9916b279ae2df8f4bac78c1ec07fe869, type: 3}
-    - {fileID: 21300000, guid: 86c932378f91f074faaa16674c794cc1, type: 3}
-    - {fileID: 21300000, guid: c2ed980e24e489a44a52d55bf034b91f, type: 3}
-    - {fileID: 21300000, guid: 5e9b1ef5c63150242960c27b4bdbc2dc, type: 3}
-    - {fileID: 21300000, guid: 177a5a7b72a3cfe4da806bafa83ed1ea, type: 3}
+    genericBindings: []
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

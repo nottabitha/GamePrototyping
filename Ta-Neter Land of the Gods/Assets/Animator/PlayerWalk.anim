@@ -8,7 +8,7 @@ AnimationClip:
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerWalk
   serializedVersion: 6
-  m_Legacy: 0
+  m_Legacy: 1
   m_Compressed: 0
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
@@ -45,23 +45,8 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings:
-    - serializedVersion: 2
-      path: 0
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-    pptrCurveMapping:
-    - {fileID: 21300000, guid: e506b75dbbef23f498a8a721d7d8f8a8, type: 3}
-    - {fileID: 21300000, guid: 0de4202fc9b75424cba4f9dec823da59, type: 3}
-    - {fileID: 21300000, guid: 7857fe48ed75e6d46bb7b6059ba9b1c7, type: 3}
-    - {fileID: 21300000, guid: 163b94ae8e9a7e74ca5761467da70f73, type: 3}
-    - {fileID: 21300000, guid: 0fdcbf6d0d8939342b2bfc2670427109, type: 3}
-    - {fileID: 21300000, guid: c0f33a03efeaf24438b682bc6da0a297, type: 3}
-    - {fileID: 21300000, guid: efa2087e18023db47be0992f80a01cd3, type: 3}
-    - {fileID: 21300000, guid: 341800cb65e9bd04f8b244a8a48d38e9, type: 3}
+    genericBindings: []
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
