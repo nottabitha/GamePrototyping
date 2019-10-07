@@ -10,22 +10,41 @@ public class playerController : MonoBehaviour
     private Rigidbody2D player;
     public health healthScript;
 
+    private Animator animator;
+    private bool isWalking;
+
+    private void Start()
+    {
+        isWalking = false;
+    }
+
     // Update is called once per frame
     private void Awake()
     {
         player = this.GetComponent<Rigidbody2D>();
         healthScript = this.GetComponent<health>();
+
+        animator = GetComponent<Animator>();
     }
     void Update()
 	{
 		if (Input.GetKey(KeyCode.D))
 		{
-			transform.position += Vector3.right * speed * Time.deltaTime;
+            isWalking = true;
+            animator.SetBool("Walking", isWalking);
+            transform.position += Vector3.right * speed * Time.deltaTime;
 		}
-		if (Input.GetKey(KeyCode.A))
+		else if (Input.GetKey(KeyCode.A))
 		{
-			transform.position += Vector3.left * speed * Time.deltaTime;
+            isWalking = true;
+            animator.SetBool("Walking", isWalking);
+            transform.position += Vector3.left * speed * Time.deltaTime;
 		}
+        else
+        {
+            isWalking = false;
+            animator.SetBool("Walking", isWalking);
+        }
 	}
 
     private void FixedUpdate()
@@ -35,7 +54,7 @@ public class playerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if ((collision.gameObject.tag == "Enemy") || (collision.gameObject.tag == "Bat"))
         {
             healthScript.Health -= 1;
         }

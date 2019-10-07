@@ -67,7 +67,7 @@ PrefabInstance:
     - target: {fileID: 5518255519425945486, guid: 03a870c4df422ca42b5c2119ee6d118e,
         type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Bat
       objectReference: {fileID: 0}
     - target: {fileID: 6144332391974889128, guid: 03a870c4df422ca42b5c2119ee6d118e,
         type: 3}

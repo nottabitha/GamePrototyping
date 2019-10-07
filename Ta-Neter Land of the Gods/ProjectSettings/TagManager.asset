@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Hook
+  - Bat
   layers:
   - Default
   - TransparentFX

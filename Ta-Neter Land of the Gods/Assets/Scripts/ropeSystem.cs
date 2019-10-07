@@ -101,8 +101,8 @@ public class ropeSystem : MonoBehaviour
 			var hit = Physics2D.Raycast(playerPosition, aimDirection, ropeMaxCastDistance, ropeLayerMask);
 			
 			// 3
-			if (hit.collider != null)
-			{
+			if ((hit.collider.gameObject.CompareTag("Hook")) || (hit.collider.gameObject.CompareTag("Bat")))
+            {
 				ropeAttached = true;
 				if (!ropePositions.Contains(hit.point))
 				{
