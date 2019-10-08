@@ -31,12 +31,20 @@ public class playerController : MonoBehaviour
 		if (Input.GetKey(KeyCode.D))
 		{
             isWalking = true;
+            if (transform.localScale.x != 0.39101f)
+            {
+                transform.localScale = new Vector3(0.39101f, 0.39101f, 0.39101f);
+            }
             animator.SetBool("Walking", isWalking);
             transform.position += Vector3.right * speed * Time.deltaTime;
 		}
 		else if (Input.GetKey(KeyCode.A))
 		{
             isWalking = true;
+            if (transform.localScale.x != -0.39101f)
+            {
+                transform.localScale = new Vector3(-0.39101f, 0.39101f, 0.39101f);
+            }
             animator.SetBool("Walking", isWalking);
             transform.position += Vector3.left * speed * Time.deltaTime;
 		}
