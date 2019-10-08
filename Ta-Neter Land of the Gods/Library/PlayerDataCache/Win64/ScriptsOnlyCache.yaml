@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - LevelManager
+    - backgroundParallax
     - batScript
     - controlsMenu
     - gameOverScript
@@ -122,6 +123,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 604}
     - Class: 114
       Script: {instanceID: 9330}
+    - Class: 114
+      Script: {instanceID: 9336}
     - Class: 114
       Script: {instanceID: 9358}
     - Class: 114
@@ -1408,4 +1411,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Level Boss.unity
   - Assets/Scenes/Controls Menu.unity
   playerPath: C:/Users/jackr/Documents/GitHub/GamePrototyping/Ta-Neter Land of the
-    Gods/Ta-Neter Land of the Gods.exe
+    Gods/Game Build/Ta-Neter Land of the Gods.exe
