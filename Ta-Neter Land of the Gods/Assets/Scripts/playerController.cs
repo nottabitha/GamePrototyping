@@ -66,5 +66,10 @@ public class playerController : MonoBehaviour
         {
             healthScript.Health -= 1;
         }
+
+        if (collision.gameObject.tag == "Spike")
+        {
+            healthScript.Health = 0;
+        }
     }
 }
