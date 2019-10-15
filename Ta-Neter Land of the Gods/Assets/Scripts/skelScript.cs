@@ -9,20 +9,26 @@ public class skelScript : MonoBehaviour
 	public float speed = 5;
     public Transform[] waypoints;
     int currentWaypointIndex;
-    public GameObject player;
+    public GameObject bone;
+    public float fireRate = 1f;
 
-
+    private boneThrow boneThrowScript;
+    private Transform target;
     private float aiCooldown;
 	private bool isWalking;
     private Transform currentWaypoint;
+    private float nextFire = 0.0f;
+    
 
-    void Awake()
-	{
-		animator = GetComponent<Animator>();
-	}		
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        bone = GameObject.FindGameObjectWithTag("bone");
+        //boneThrowScript = bone.GetComponent<boneThrow>();
+        //boneThrowScript.enabled = false;
+
         //collider2D.enabled = false;
         currentWaypointIndex = 0;
         currentWaypoint = waypoints[currentWaypointIndex];
@@ -33,6 +39,14 @@ public class skelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Vector3.Distance(transform.position, target.position));
+
+        if ((Vector3.Distance(target.position, transform.position) < 6f) && (Time.time > nextFire))
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(bone, transform.position, Quaternion.identity);
+            //boneThrowScript.enabled = true;
+        }
         	
     	aiCooldown -= Time.deltaTime;
     	//move or attack 
@@ -42,11 +56,6 @@ public class skelScript : MonoBehaviour
 			animator.SetBool("Walking", isWalking);
         }
 
-        if (Vector3.Distance(player.transform.position, currentWaypoint.position) < 10f)
-        {
-
-        }
-        
         //Movement
 		Direction ();
     }
@@ -55,7 +64,6 @@ public class skelScript : MonoBehaviour
 	{
         if (Vector3.Distance(transform.parent.position, currentWaypoint.position) < .5f)
         {
-            Debug.Log((Vector3.Distance(transform.parent.position, currentWaypoint.position)));
             if (currentWaypointIndex + 1 < waypoints.Length)
             {
                 currentWaypointIndex++;
@@ -99,4 +107,5 @@ public class skelScript : MonoBehaviour
 	{
         animator.SetTrigger("Hit");
 	}
+    
 }

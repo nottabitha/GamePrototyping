@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\anubisScript.cs" />
     <Compile Include="Assets\Scripts\backgroundParallax.cs" />
     <Compile Include="Assets\Scripts\batScript.cs" />
+    <Compile Include="Assets\Scripts\boneThrow.cs" />
     <Compile Include="Assets\Scripts\controlsMenu.cs" />
     <Compile Include="Assets\Scripts\gameOverScript.cs" />
     <Compile Include="Assets\Scripts\health.cs" />

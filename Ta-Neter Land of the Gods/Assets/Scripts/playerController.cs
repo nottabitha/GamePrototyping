@@ -12,6 +12,7 @@ public class playerController : MonoBehaviour
 
     private Animator animator;
     private bool isWalking;
+    private bool invulnerable = false;
 
     private void Start()
     {
@@ -53,7 +54,7 @@ public class playerController : MonoBehaviour
             isWalking = false;
             animator.SetBool("Walking", isWalking);
         }
-	}
+    }
 
     private void FixedUpdate()
     {
@@ -62,14 +63,23 @@ public class playerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.tag == "Enemy") || (collision.gameObject.tag == "Bat"))
-        {
-            healthScript.Health -= 1;
-        }
+        if (invulnerable == false)
+            if ((collision.gameObject.tag == "Enemy") || (collision.gameObject.tag == "Bat"))
+            {
+                healthScript.Health -= 1;
+                StartCoroutine(Invulnerability());
+            }
 
         if (collision.gameObject.tag == "Spike")
         {
             healthScript.Health = 0;
         }
+    }
+
+    IEnumerator Invulnerability()
+    {
+        invulnerable = true;
+        yield return new WaitForSeconds(3);
+        invulnerable = false;
     }
 }
