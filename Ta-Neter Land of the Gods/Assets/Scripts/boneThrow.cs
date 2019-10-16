@@ -15,16 +15,18 @@ public class boneThrow : MonoBehaviour
     private Vector3 targetStart;
     private float x0;
     private float x1;
-
+    private float y1;
+    // http://luminaryapps.com/blog/arcing-projectiles-in-unity/
     void Start()
     {
         // Cache our start position, which is really the only thing we need
         // (in addition to our current position, and the target).
         startPos = transform.position;
-        target = GameObject.Find("Player").transform;
+        target = GameObject.Find("boneTarget").transform;
 
         x0 = startPos.x;
         x1 = target.position.x;
+        y1 = target.position.y;
 
         targetStart = target.position;
     }
@@ -37,10 +39,10 @@ public class boneThrow : MonoBehaviour
     void SimulateProjectile()
     {
         // Compute the next position, with arc added in
-        
+
         float dist = x1 - x0;
         float nextX = Mathf.MoveTowards(transform.position.x, x1, speed * Time.deltaTime);
-        float baseY = Mathf.Lerp(startPos.y, target.position.y, (nextX - x0) / dist);
+        float baseY = Mathf.Lerp(startPos.y, y1, (nextX - x0) / dist) ;
         float arc = arcHeight * (nextX - x0) * (nextX - x1) / (-0.25f * dist * dist);
         Vector3 nextPos = new Vector3(nextX, baseY + arc, transform.position.z);
 
@@ -49,7 +51,11 @@ public class boneThrow : MonoBehaviour
         transform.position = nextPos;
 
         // Do something when we reach the target
-        if ((nextPos == targetStart) || (nextPos == target.position)) Arrived();
+        if (nextPos == targetStart)
+        {
+            Arrived();
+        }
+
     }
 
     void Arrived()
@@ -59,7 +65,7 @@ public class boneThrow : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if ((collision.gameObject.tag == "Player") || (collision.gameObject.tag == "TileBase")) 
         {
             Destroy(gameObject);
         }
