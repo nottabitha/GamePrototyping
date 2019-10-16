@@ -9,24 +9,27 @@ public class skelScript : MonoBehaviour
 	public float speed = 5;
     public Transform[] waypoints;
     int currentWaypointIndex;
-    public GameObject bone;
+    public GameObject boneObject;
     public float fireRate = 1f;
 
-    private boneThrow boneThrowScript;
     private Transform target;
     private float aiCooldown;
 	private bool isWalking;
     private Transform currentWaypoint;
     private float nextFire = 0.0f;
-    
+
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        boneObject = GameObject.Find("bone");
+        boneObject.SetActive(true);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
-        bone = GameObject.FindGameObjectWithTag("bone");
-        //boneThrowScript = bone.GetComponent<boneThrow>();
         //boneThrowScript.enabled = false;
 
         //collider2D.enabled = false;
@@ -39,12 +42,10 @@ public class skelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Vector3.Distance(transform.position, target.position));
-
         if ((Vector3.Distance(target.position, transform.position) < 6f) && (Time.time > nextFire))
         {
             nextFire = Time.time + fireRate;
-            Instantiate(bone, transform.position, Quaternion.identity);
+            Instantiate(boneObject, transform.position, Quaternion.identity);
             //boneThrowScript.enabled = true;
         }
         	
@@ -79,7 +80,7 @@ public class skelScript : MonoBehaviour
 		if (currentWaypointIndex == 0)
 		{
 			isWalking = true;
-			if (transform.parent.localScale.x != 17.01f)
+			if (transform.parent.localScale.x != 1f)
 			{
 				transform.parent.localScale = new Vector3(1f, 1f, 0);
 			}
@@ -89,7 +90,7 @@ public class skelScript : MonoBehaviour
         else if (currentWaypointIndex == 1)
         {
             isWalking = true;
-            if (transform.parent.localScale.x != 17.01f)
+            if (transform.parent.localScale.x != 1f)
             {
                 transform.parent.localScale = new Vector3(-1f, 1f, 0);
             }
