@@ -13,6 +13,8 @@ public class playerController : MonoBehaviour
     private Animator animator;
     private bool isWalking;
     private bool invulnerable = false;
+    private GameObject bossCutsceneObj;
+    private bossStartCutscene bossCutsceneScript;
 
     private void Start()
     {
@@ -24,35 +26,40 @@ public class playerController : MonoBehaviour
     {
         player = this.GetComponent<Rigidbody2D>();
         healthScript = this.GetComponent<health>();
+        bossCutsceneObj = GameObject.Find("CameraWaypoint");
+        bossCutsceneScript = bossCutsceneObj.GetComponent<bossStartCutscene>();
 
         animator = GetComponent<Animator>();
     }
     void Update()
 	{
-		if (Input.GetKey(KeyCode.D))
-		{
-            isWalking = true;
-            if (transform.localScale.x != 0.39101f)
-            {
-                transform.localScale = new Vector3(0.39101f, 0.39101f, 0.39101f);
-            }
-            animator.SetBool("Walking", isWalking);
-            transform.position += Vector3.right * speed * Time.deltaTime;
-		}
-		else if (Input.GetKey(KeyCode.A))
-		{
-            isWalking = true;
-            if (transform.localScale.x != -0.39101f)
-            {
-                transform.localScale = new Vector3(-0.39101f, 0.39101f, 0.39101f);
-            }
-            animator.SetBool("Walking", isWalking);
-            transform.position += Vector3.left * speed * Time.deltaTime;
-		}
-        else
+        if (bossCutsceneScript.cutsceneActive == false)
         {
-            isWalking = false;
-            animator.SetBool("Walking", isWalking);
+		    if (Input.GetKey(KeyCode.D))
+		    {
+                isWalking = true;
+                if (transform.localScale.x != 0.39101f)
+                {
+                    transform.localScale = new Vector3(0.39101f, 0.39101f, 0.39101f);
+                }
+                animator.SetBool("Walking", isWalking);
+                transform.position += Vector3.right * speed * Time.deltaTime;
+		    }
+		    else if (Input.GetKey(KeyCode.A))
+		    {
+                isWalking = true;
+                if (transform.localScale.x != -0.39101f)
+                {
+                    transform.localScale = new Vector3(-0.39101f, 0.39101f, 0.39101f);
+                }
+                animator.SetBool("Walking", isWalking);
+                transform.position += Vector3.left * speed * Time.deltaTime;
+		    }
+            else
+            {
+                isWalking = false;
+                animator.SetBool("Walking", isWalking);
+            }
         }
     }
 

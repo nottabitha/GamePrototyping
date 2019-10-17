@@ -63,18 +63,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Animator\playerIdleState.cs" />
-    <Compile Include="Assets\mummyScript.cs" />
-    <Compile Include="Assets\parallax.cs" />
+    <Compile Include="Assets\Asset Store\HowToHealthBar\Scripts\GameHandler.cs" />
+    <Compile Include="Assets\Asset Store\HowToHealthBar\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\anubisScript.cs" />
     <Compile Include="Assets\Scripts\backgroundParallax.cs" />
     <Compile Include="Assets\Scripts\batScript.cs" />
     <Compile Include="Assets\Scripts\boneThrow.cs" />
+    <Compile Include="Assets\Scripts\bossStartCutscene.cs" />
     <Compile Include="Assets\Scripts\controlsMenu.cs" />
     <Compile Include="Assets\Scripts\gameOverScript.cs" />
     <Compile Include="Assets\Scripts\health.cs" />
+    <Compile Include="Assets\Scripts\healthBar.cs" />
     <Compile Include="Assets\Scripts\laser.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\menuManager.cs" />
+    <Compile Include="Assets\Scripts\mummyScript.cs" />
+    <Compile Include="Assets\Scripts\parallax.cs" />
     <Compile Include="Assets\Scripts\pauseMenu.cs" />
     <Compile Include="Assets\Scripts\playerController.cs" />
     <Compile Include="Assets\Scripts\playerIdleBehaviour.cs" />

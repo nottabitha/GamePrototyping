@@ -11,8 +11,10 @@ public class anubisScript : MonoBehaviour
 	public float speed = 5;
     public Transform[] waypoints;
     int currentWaypointIndex;
+    public healthBar healthBar;
 
-
+    private GameObject healthBarObject;
+    private float health = 1f;
     private float aiCooldown;
 	private bool isAttacking;
 	private bool isWalking;
@@ -20,7 +22,9 @@ public class anubisScript : MonoBehaviour
 
     void Awake()
 	{
-		//animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
+        healthBarObject = GetComponent<GameObject>();
+        healthBar = healthBarObject.GetComponent<healthBar>();
 	}		
     // Start is called before the first frame update
     void Start()
@@ -45,6 +49,15 @@ public class anubisScript : MonoBehaviour
 		//Direction ();
     }
     
+    private void TakeDamage()
+    {
+        if (health > .01)
+        {
+            health -= .01f;
+            healthBar.SetSize(health);
+        }
+    }
+
 	void Direction ()
 	{
         if (Vector3.Distance(transform.parent.position, currentWaypoint.position) < .5f)
@@ -88,11 +101,14 @@ public class anubisScript : MonoBehaviour
 			animator.SetBool("Walking", isWalking);
 		}
 	}
-	
-	void OnTriggerEnter2D(Collider2D otherCollider2D)
-	{
-        animator.SetTrigger("Hit");
-	}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            TakeDamage();
+        }
+    }
 
     void Attacking()
     {
