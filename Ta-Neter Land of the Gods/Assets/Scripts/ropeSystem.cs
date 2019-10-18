@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class ropeSystem : MonoBehaviour
 {
@@ -29,16 +30,23 @@ public class ropeSystem : MonoBehaviour
     private GameObject bossCutsceneObj;
     private bossStartCutscene bossCutsceneScript;
 
+    private Scene currentScene;
+
     void Awake()
 	{
-		cam = Camera.main;
+        currentScene = SceneManager.GetActiveScene();
+
+        cam = Camera.main;
 		ropeJoint.enabled = false;
 		playerPosition = transform.position;
 		ropeHingeAnchorRb = ropeHingeAnchor.GetComponent<Rigidbody2D>();
 		ropeHingeAnchorSprite = ropeHingeAnchor.GetComponent<SpriteRenderer>();
 
-        bossCutsceneObj = GameObject.Find("CameraWaypoint");
-        bossCutsceneScript = bossCutsceneObj.GetComponent<bossStartCutscene>();
+        if (currentScene.name == "Level Boss")
+        {
+            bossCutsceneObj = GameObject.Find("CameraWaypoint");
+            bossCutsceneScript = bossCutsceneObj.GetComponent<bossStartCutscene>();
+        }
     }
 	
 	void Update()
@@ -81,47 +89,112 @@ public class ropeSystem : MonoBehaviour
 	
 	private void SetCrosshairPosition()
 	{
-        if (bossCutsceneScript.cutsceneActive == false)
+        if (currentScene.name == "Level Boss")
+        {
+            if (bossCutsceneScript.cutsceneActive == false)
+            {
+                if (!crosshairSprite.enabled)
+		        {
+			        crosshairSprite.enabled = true;
+		        }
+		        Vector3 mouse = Input.mousePosition;
+		        Vector3 mousePosition = cam.ScreenToWorldPoint(mouse);
+		
+		        //var x = transform.position.x + 5f * Mathf.Cos(aimAngle);
+		        //var y = transform.position.y + 5f * Mathf.Sin(aimAngle);
+		
+		        var crossHairPosition = new Vector3(mousePosition.x, mousePosition.y, 0);
+		        crosshair.transform.position = crossHairPosition;
+            }
+        }
+        else
         {
             if (!crosshairSprite.enabled)
-		    {
-			    crosshairSprite.enabled = true;
-		    }
-		    Vector3 mouse = Input.mousePosition;
-		    Vector3 mousePosition = cam.ScreenToWorldPoint(mouse);
-		
-		    //var x = transform.position.x + 5f * Mathf.Cos(aimAngle);
-		    //var y = transform.position.y + 5f * Mathf.Sin(aimAngle);
-		
-		    var crossHairPosition = new Vector3(mousePosition.x, mousePosition.y, 0);
-		    crosshair.transform.position = crossHairPosition;
+            {
+                crosshairSprite.enabled = true;
+            }
+            Vector3 mouse = Input.mousePosition;
+            Vector3 mousePosition = cam.ScreenToWorldPoint(mouse);
+
+            //var x = transform.position.x + 5f * Mathf.Cos(aimAngle);
+            //var y = transform.position.y + 5f * Mathf.Sin(aimAngle);
+
+            var crossHairPosition = new Vector3(mousePosition.x, mousePosition.y, 0);
+            crosshair.transform.position = crossHairPosition;
         }
 	}
 	
 	// 1
 	private void HandleInput(Vector2 aimDirection)
 	{
-        if (bossCutsceneScript.cutsceneActive == true)
+        if (currentScene.name == "Level Boss")
         {
-            crosshairSprite.enabled = false;
-        }
+            if (bossCutsceneScript.cutsceneActive == true)
+            {
+                crosshairSprite.enabled = false;
+            }
 
-        if (bossCutsceneScript.cutsceneActive == false)
-        {
-		    if (Input.GetMouseButton(0))
-		    {
-			    // 2
-			    if (ropeAttached) return;
-			    ropeRenderer.enabled = true;
-			
-			    var hit = Physics2D.Raycast(playerPosition, aimDirection, ropeMaxCastDistance, ropeLayerMask);
-			
-			    // 3
-			    if ((hit.collider.gameObject.CompareTag("Hook")) || (hit.collider.gameObject.CompareTag("Bat")))
+
+            if (bossCutsceneScript.cutsceneActive == false)
+            {
+                if (Input.GetMouseButton(0))
                 {
-				    ropeAttached = true;
-				    if (!ropePositions.Contains(hit.point))
-				    {
+                    // 2
+                    if (ropeAttached) return;
+                    ropeRenderer.enabled = true;
+
+                    var hit = Physics2D.Raycast(playerPosition, aimDirection, ropeMaxCastDistance, ropeLayerMask);
+
+                    // 3
+                    if ((hit.collider.gameObject.CompareTag("Hook")) || (hit.collider.gameObject.CompareTag("Bat")))
+                    {
+                        ropeAttached = true;
+                        if (!ropePositions.Contains(hit.point))
+                        {
+                            // 4
+                            // Jump slightly to distance the player a little from the ground after grappling to something.
+                            //transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
+                            //float step = speed * Time.fixedDeltaTime;
+                            //Vector2 ropePosition = Vector2.MoveTowards(playerRb.position, ropeHingeAnchorRb.position, step);
+                            //playerRb.MovePosition(ropePosition);
+                            ropePositions.Add(hit.point);
+                            ropeJoint.distance = Vector2.Distance(playerPosition, hit.point);
+                            ropeJoint.enabled = true;
+                            ropeHingeAnchorSprite.enabled = true;
+                            playerMovement.isSwinging = true;
+                        }
+                    }
+                    // 5
+                    else
+                    {
+                        ropeRenderer.enabled = false;
+                        ropeAttached = false;
+                        ropeJoint.enabled = false;
+                    }
+                }
+
+                if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
+                {
+                    ResetRope();
+                }
+            }
+        }
+        else
+        {
+            if (Input.GetMouseButton(0))
+            {
+                // 2
+                if (ropeAttached) return;
+                ropeRenderer.enabled = true;
+
+                var hit = Physics2D.Raycast(playerPosition, aimDirection, ropeMaxCastDistance, ropeLayerMask);
+
+                // 3
+                if ((hit.collider.gameObject.CompareTag("Hook")) || (hit.collider.gameObject.CompareTag("Bat")))
+                {
+                    ropeAttached = true;
+                    if (!ropePositions.Contains(hit.point))
+                    {
                         // 4
                         // Jump slightly to distance the player a little from the ground after grappling to something.
                         //transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
@@ -129,25 +202,25 @@ public class ropeSystem : MonoBehaviour
                         //Vector2 ropePosition = Vector2.MoveTowards(playerRb.position, ropeHingeAnchorRb.position, step);
                         //playerRb.MovePosition(ropePosition);
                         ropePositions.Add(hit.point);
-					    ropeJoint.distance = Vector2.Distance(playerPosition, hit.point);
-					    ropeJoint.enabled = true;
-					    ropeHingeAnchorSprite.enabled = true;
+                        ropeJoint.distance = Vector2.Distance(playerPosition, hit.point);
+                        ropeJoint.enabled = true;
+                        ropeHingeAnchorSprite.enabled = true;
                         playerMovement.isSwinging = true;
-				    }
-			    }
-			    // 5
-			    else
-			    {
-				    ropeRenderer.enabled = false;
-				    ropeAttached = false;
-				    ropeJoint.enabled = false;
-			    }
-		    }
-		
-		    if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
-		    {
-			    ResetRope();
-		    }
+                    }
+                }
+                // 5
+                else
+                {
+                    ropeRenderer.enabled = false;
+                    ropeAttached = false;
+                    ropeJoint.enabled = false;
+                }
+            }
+
+            if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
+            {
+                ResetRope();
+            }
         }
 	}
 	

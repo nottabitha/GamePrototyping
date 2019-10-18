@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class playerController : MonoBehaviour
     private GameObject bossCutsceneObj;
     private bossStartCutscene bossCutsceneScript;
 
+    private Scene currentScene;
+
+
     private void Start()
     {
         isWalking = false;
@@ -24,42 +28,59 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     private void Awake()
     {
+        currentScene = SceneManager.GetActiveScene();
+
         player = this.GetComponent<Rigidbody2D>();
         healthScript = this.GetComponent<health>();
-        bossCutsceneObj = GameObject.Find("CameraWaypoint");
-        bossCutsceneScript = bossCutsceneObj.GetComponent<bossStartCutscene>();
+        if (currentScene.name == "Level Boss")
+        {
+            bossCutsceneObj = GameObject.Find("CameraWaypoint");
+            bossCutsceneScript = bossCutsceneObj.GetComponent<bossStartCutscene>();
+        }
 
         animator = GetComponent<Animator>();
     }
     void Update()
 	{
-        if (bossCutsceneScript.cutsceneActive == false)
+        if (currentScene.name == "Level Boss")
         {
-		    if (Input.GetKey(KeyCode.D))
-		    {
-                isWalking = true;
-                if (transform.localScale.x != 0.39101f)
-                {
-                    transform.localScale = new Vector3(0.39101f, 0.39101f, 0.39101f);
-                }
-                animator.SetBool("Walking", isWalking);
-                transform.position += Vector3.right * speed * Time.deltaTime;
-		    }
-		    else if (Input.GetKey(KeyCode.A))
-		    {
-                isWalking = true;
-                if (transform.localScale.x != -0.39101f)
-                {
-                    transform.localScale = new Vector3(-0.39101f, 0.39101f, 0.39101f);
-                }
-                animator.SetBool("Walking", isWalking);
-                transform.position += Vector3.left * speed * Time.deltaTime;
-		    }
-            else
+            if (bossCutsceneScript.cutsceneActive == false)
             {
-                isWalking = false;
-                animator.SetBool("Walking", isWalking);
+                Movement();
             }
+        }
+        else
+        {
+            Movement();
+        }
+    }
+
+    private void Movement()
+    {
+        if (Input.GetKey(KeyCode.D))
+        {
+            isWalking = true;
+            if (transform.localScale.x != 0.39101f)
+            {
+                transform.localScale = new Vector3(0.39101f, 0.39101f, 0.39101f);
+            }
+            animator.SetBool("Walking", isWalking);
+            transform.position += Vector3.right * speed * Time.deltaTime;
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            isWalking = true;
+            if (transform.localScale.x != -0.39101f)
+            {
+                transform.localScale = new Vector3(-0.39101f, 0.39101f, 0.39101f);
+            }
+            animator.SetBool("Walking", isWalking);
+            transform.position += Vector3.left * speed * Time.deltaTime;
+        }
+        else
+        {
+            isWalking = false;
+            animator.SetBool("Walking", isWalking);
         }
     }
 

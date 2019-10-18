@@ -8,11 +8,13 @@ public class bossStartCutscene : MonoBehaviour
     public GameObject Cameratarget2;
     public GameObject Playertarget;
     public GameObject player;
-    public GameObject healthBar;
+    //public GameObject healthBar;
+    public GameObject anubis;
 
     public bool cutsceneActive;
     private Vector3 position;
     private Animator animator;
+    private anubisScript anubisScript;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class bossStartCutscene : MonoBehaviour
         position = transform.position;
 
         animator = player.GetComponent<Animator>();
+        anubisScript = anubis.GetComponent<anubisScript>();
     }
 
     // Update is called once per frame
@@ -32,7 +35,8 @@ public class bossStartCutscene : MonoBehaviour
             {
                 animator.SetBool("Walking", false);
                 cutsceneActive = false;
-                healthBar.SetActive(true);
+                //healthBar.SetActive(true);
+                anubisScript.phase1 = true;
             }
             else
             {

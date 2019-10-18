@@ -12,28 +12,45 @@ public class anubisScript : MonoBehaviour
     public Transform[] waypoints;
     int currentWaypointIndex;
     public healthBar healthBar;
+    public GameObject healthBarObject;
 
-    private GameObject healthBarObject;
+    public bool phase1 = false;
+    public bool phase2 = false;
+
+    public float minLaserCooldown = 2.0f;
+    public float maxLaserCooldown = 3.0f;
+
     private float health = 1f;
     private float aiCooldown;
 	private bool isAttacking;
 	private bool isWalking;
     private Transform currentWaypoint;
 
+    private GameObject laser;
+    private laser laserScript;
+    private GameObject player;
+    private float laserCooldown;
+
     void Awake()
 	{
         //animator = GetComponent<Animator>();
-        healthBarObject = GetComponent<GameObject>();
+        //healthBarObject = GetComponent<GameObject>();
         healthBar = healthBarObject.GetComponent<healthBar>();
-	}		
+        laser = GameObject.Find("Laser");
+
+        laserScript = laser.GetComponent<laser>();
+        player = GameObject.Find("Player");
+
+        laserScript.enabled = false;
+    }		
     // Start is called before the first frame update
     void Start()
     {
         //collider2D.enabled = false;
-        currentWaypointIndex = 0;
-        currentWaypoint = waypoints[currentWaypointIndex];
+        //currentWaypointIndex = 0;
+        //currentWaypoint = waypoints[currentWaypointIndex];
         //isWalking = false;
-        transform.parent.position = currentWaypoint.position;
+        //transform.parent.position = currentWaypoint.position;
     }
 
     // Update is called once per frame
@@ -42,11 +59,17 @@ public class anubisScript : MonoBehaviour
         	
     	aiCooldown -= Time.deltaTime;
     	//move or attack 
-		animator.SetBool("Walking", isWalking);
+		//animator.SetBool("Walking", isWalking);
 
         Attacking();
         //Movement
 		//Direction ();
+
+        if (phase1 == true)
+        {
+            Debug.Log("Hello");
+            Phase1();
+        }
     }
     
     private void TakeDamage()
@@ -112,8 +135,22 @@ public class anubisScript : MonoBehaviour
 
     void Attacking()
     {
-        GameObject laserPosition = GameObject.Find("LaserPoint");
-        GameObject player = GameObject.Find("Player");
-        var laser = Physics2D.Raycast(laserPosition.transform.position, player.transform.position, Mathf.Infinity);
+        //Physics2D.Raycast(laserPosition.transform.position, player.transform.position, Mathf.Infinity);
+    }
+
+    private void Phase1()
+    {
+        healthBarObject.SetActive(true);
+
+        aiCooldown -= Time.deltaTime;
+        /*
+        if (laserCooldown <= 0f)
+        {
+            laserScript.enabled = false;
+            laserCooldown = Random.Range(minLaserCooldown, maxLaserCooldown);
+        }
+        else
+        */
+        laserScript.enabled = true;
     }
 }
