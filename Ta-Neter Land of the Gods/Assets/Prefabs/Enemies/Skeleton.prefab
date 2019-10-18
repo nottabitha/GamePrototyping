@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1732949854}
   - component: {fileID: 1732949851}
   - component: {fileID: 1732949850}
+  - component: {fileID: 520489987}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -140,7 +141,7 @@ Animator:
   m_GameObject: {fileID: 7211887771532917449}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8d14cb9efa5f9194eb772bd02a105958, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -167,3 +168,19 @@ MonoBehaviour:
   - {fileID: 0}
   bone: {fileID: 1924659644016182900, guid: b6177d29ace2e3640acb0ad392508eb7, type: 3}
   fireRate: 1
+--- !u!111 &520489987
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7211887771532917449}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 29f076bdbced4ca47952acc5f60f38f7, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 29f076bdbced4ca47952acc5f60f38f7, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
