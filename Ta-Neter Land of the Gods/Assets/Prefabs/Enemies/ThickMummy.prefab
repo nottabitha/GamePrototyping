@@ -123,3 +123,5 @@ MonoBehaviour:
   maxAttackCooldown: 2
   speed: 5
   waypoints: []
+  health: 1
+  player: {fileID: 2758273778750944725, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}

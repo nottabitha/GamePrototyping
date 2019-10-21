@@ -146,8 +146,8 @@ GameObject:
   - component: {fileID: 2144023116061833019}
   - component: {fileID: 837675499446889421}
   - component: {fileID: 837675499446889409}
-  - component: {fileID: 1088384826249291186}
   - component: {fileID: 2758273779534361921}
+  - component: {fileID: 1088384826249291186}
   - component: {fileID: 600223983}
   m_Layer: 8
   m_Name: Player
@@ -307,6 +307,8 @@ MonoBehaviour:
   isSwinging: 0
   maxVelocity: 10
   healthScript: {fileID: 0}
+  isAttacking: 0
+  animator: {fileID: 2758273779534361921}
 --- !u!232 &837675499446889409
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -326,6 +328,25 @@ DistanceJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 0.005
   m_MaxDistanceOnly: 0
+--- !u!95 &2758273779534361921
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2758273778750944725}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7399a1abdda5abe43bccb338cf473112, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!120 &1088384826249291186
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -421,25 +442,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!95 &2758273779534361921
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2758273778750944725}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7399a1abdda5abe43bccb338cf473112, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &600223983
 MonoBehaviour:
   m_ObjectHideFlags: 0

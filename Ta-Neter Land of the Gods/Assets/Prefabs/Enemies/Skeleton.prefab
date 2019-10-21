@@ -168,6 +168,8 @@ MonoBehaviour:
   - {fileID: 0}
   bone: {fileID: 1924659644016182900, guid: b6177d29ace2e3640acb0ad392508eb7, type: 3}
   fireRate: 1
+  health: 1
+  player: {fileID: 2758273778750944725, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
 --- !u!111 &520489987
 Animation:
   m_ObjectHideFlags: 0

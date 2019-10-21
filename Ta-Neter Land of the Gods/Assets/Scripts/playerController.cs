@@ -10,8 +10,10 @@ public class playerController : MonoBehaviour
     public float maxVelocity;
     private Rigidbody2D player;
     public health healthScript;
+    public bool isAttacking;
+    public Animator animator;
 
-    private Animator animator;
+
     private bool isWalking;
     private bool invulnerable = false;
     private GameObject bossCutsceneObj;
@@ -23,6 +25,7 @@ public class playerController : MonoBehaviour
     private void Start()
     {
         isWalking = false;
+        isAttacking = false;
     }
 
     // Update is called once per frame
@@ -47,11 +50,13 @@ public class playerController : MonoBehaviour
             if (bossCutsceneScript.cutsceneActive == false)
             {
                 Movement();
+                Attack();
             }
         }
         else
         {
             Movement();
+            Attack();
         }
     }
 
@@ -109,5 +114,19 @@ public class playerController : MonoBehaviour
         invulnerable = true;
         yield return new WaitForSeconds(3);
         invulnerable = false;
+    }
+
+    private void Attack()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isAttacking = true;
+            animator.SetBool("Attack", isAttacking);
+        }
+        else
+        {
+            isAttacking = false;
+            animator.SetBool("Attack", isAttacking);
+        }
     }
 }

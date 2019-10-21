@@ -11,7 +11,10 @@ public class skelScript : MonoBehaviour
     int currentWaypointIndex;
     public GameObject bone;
     public float fireRate = 1f;
+    public int health = 1;
+    public GameObject player;
 
+    private playerController playerScript;
     private Transform target;
     private float aiCooldown;
 	private bool isWalking;
@@ -21,6 +24,7 @@ public class skelScript : MonoBehaviour
 
     void Awake()
     {
+        playerScript = player.GetComponent<playerController>();
         animator = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -57,6 +61,7 @@ public class skelScript : MonoBehaviour
 
         //Movement
 		Direction ();
+        Death();
     }
     
 	void Direction ()
@@ -102,9 +107,24 @@ public class skelScript : MonoBehaviour
 		}
 	}
 	
-	void OnTriggerEnter2D(Collider2D otherCollider2D)
-	{
-        animator.SetTrigger("Hit");
-	}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            {
+                animator.SetTrigger("Hit");
+                health -= 1;
+            }
+        }
+    }
+
+    private void Death()
+    {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     
 }

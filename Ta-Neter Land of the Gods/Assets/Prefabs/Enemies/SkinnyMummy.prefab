@@ -96,7 +96,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: ee87028ec8099d1499b238a79c239a65, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: ee87028ec8099d1499b238a79c239a65, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -227,3 +228,5 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
+  health: 1
+  player: {fileID: 2758273778750944725, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}

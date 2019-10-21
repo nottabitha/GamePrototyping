@@ -10,9 +10,11 @@ public class mummyScript : MonoBehaviour
     public float maxAttackCooldown = 2f;
     public float speed = 5;
     public Transform[] waypoints;
+    public int health = 1;
     int currentWaypointIndex;
+    public GameObject player;
 
-
+    private playerController playerScript;
     private float aiCooldown;
     private bool isAttacking;
     private bool isWalking;
@@ -20,6 +22,7 @@ public class mummyScript : MonoBehaviour
 
     void Awake()
     {
+        playerScript = player.GetComponent<playerController>();
         animator = GetComponent<Animator>();
     }
     // Start is called before the first frame update
@@ -57,6 +60,8 @@ public class mummyScript : MonoBehaviour
         {
             Direction();
         }
+
+        Death();
     }
 
     void Direction()
@@ -103,8 +108,23 @@ public class mummyScript : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D otherCollider2D)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        animator.SetTrigger("Hit");
+        if (collision.gameObject.tag == "Player")
+        {
+            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            {
+                health -= 1;
+                animator.SetTrigger("Hit");
+            }
+        }
+    }
+
+    private void Death()
+    {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
