@@ -1,0 +1,566 @@
+fileFormatVersion: 2
+guid: 09180ed820af88941af0536dd0993970
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2628444993156708228
+    second: sandtiles_0
+  - first:
+      213: -7364080467385330452
+    second: sandtiles_1
+  - first:
+      213: -4869676535605130677
+    second: sandtiles_2
+  - first:
+      213: 7548030001662799376
+    second: sandtiles_3
+  - first:
+      213: -1148887497646222707
+    second: sandtiles_4
+  - first:
+      213: 1024761389991171738
+    second: sandtiles_5
+  - first:
+      213: 4451395515279257022
+    second: sandtiles_6
+  - first:
+      213: -6593108626046385868
+    second: sandtiles_7
+  - first:
+      213: -6391824144381836569
+    second: sandtiles_8
+  - first:
+      213: 7563994067167538004
+    second: sandtiles_9
+  - first:
+      213: -2828315948608501597
+    second: sandtiles_10
+  - first:
+      213: -4981267914767600530
+    second: sandtiles_11
+  - first:
+      213: -596740823112183521
+    second: sandtiles_12
+  - first:
+      213: -6553280243464207177
+    second: sandtiles_13
+  - first:
+      213: -8600717507630534455
+    second: sandtiles_14
+  - first:
+      213: -8413613351287682789
+    second: sandtiles_15
+  - first:
+      213: 1142472470256313621
+    second: sandtiles_16
+  - first:
+      213: -6919353065908517354
+    second: sandtiles_17
+  - first:
+      213: 7101215934341414258
+    second: sandtiles_18
+  - first:
+      213: 8206819552077064107
+    second: sandtiles_19
+  - first:
+      213: -9127893452856908903
+    second: sandtiles_20
+  - first:
+      213: 8320861528966717198
+    second: sandtiles_21
+  - first:
+      213: -6650464733156959597
+    second: sandtiles_22
+  - first:
+      213: -4741591536721514335
+    second: sandtiles_23
+  - first:
+      213: 900448397978767818
+    second: sandtiles_24
+  - first:
+      213: 3002020619744059078
+    second: sandtiles_25
+  - first:
+      213: 7088802457900151267
+    second: sandtiles_26
+  - first:
+      213: 1842597411531847293
+    second: sandtiles_27
+  - first:
+      213: 1213432855280661566
+    second: sandtiles_28
+  - first:
+      213: -4933777615826398720
+    second: sandtiles_29
+  - first:
+      213: 777618609923793618
+    second: sandtiles_30
+  - first:
+      213: 1146133079050638363
+    second: sandtiles_31
+  - first:
+      213: 6678184315704891471
+    second: sandtiles_32
+  - first:
+      213: -8417903869121647095
+    second: sandtiles_33
+  - first:
+      213: 3697099235947706421
+    second: sandtiles_34
+  - first:
+      213: -4500926983728357440
+    second: sandtiles_35
+  - first:
+      213: -5243399728103271872
+    second: sandtiles_36
+  - first:
+      213: 1685169846479639583
+    second: sandtiles_37
+  - first:
+      213: 1865812759728541220
+    second: sandtiles_38
+  - first:
+      213: 5842348688385053209
+    second: sandtiles_39
+  - first:
+      213: 426377801397250382
+    second: sandtiles_40
+  - first:
+      213: 3206657489640043761
+    second: sandtiles_41
+  - first:
+      213: -6537683311167603621
+    second: sandtiles_42
+  - first:
+      213: -52886041334785688
+    second: sandtiles_43
+  - first:
+      213: 961858158078084098
+    second: sandtiles_44
+  - first:
+      213: 8510613164437182890
+    second: sandtiles_45
+  - first:
+      213: 6157763271423477778
+    second: sandtiles_46
+  - first:
+      213: 4597990134484554648
+    second: sandtiles_47
+  - first:
+      213: -8512725957186050051
+    second: sandtiles_48
+  - first:
+      213: -5741802934338780533
+    second: sandtiles_49
+  - first:
+      213: 794072816182131653
+    second: sandtiles_50
+  - first:
+      213: -5537220193507178531
+    second: sandtiles_51
+  - first:
+      213: -4376619259893242940
+    second: sandtiles_52
+  - first:
+      213: -7998789445260723986
+    second: sandtiles_53
+  - first:
+      213: 4431588201601291724
+    second: sandtiles_54
+  - first:
+      213: -8116591702183718246
+    second: sandtiles_55
+  - first:
+      213: 2525409084106189645
+    second: sandtiles_56
+  - first:
+      213: 3633543419845846896
+    second: sandtiles_57
+  - first:
+      213: -7311618980330204022
+    second: sandtiles_58
+  - first:
+      213: -2318726999374354989
+    second: sandtiles_59
+  - first:
+      213: -5573862396151462494
+    second: sandtiles_60
+  - first:
+      213: -9067605232584693046
+    second: sandtiles_61
+  - first:
+      213: -3376921133161873120
+    second: sandtiles_62
+  - first:
+      213: -3480860473564537415
+    second: sandtiles_63
+  - first:
+      213: -21420647027808689
+    second: sandtiles_64
+  - first:
+      213: -5559654084903000548
+    second: sandtiles_65
+  - first:
+      213: -1949205198683059199
+    second: sandtiles_66
+  - first:
+      213: -272777326389207424
+    second: sandtiles_67
+  - first:
+      213: 7760409855016567482
+    second: sandtiles_68
+  - first:
+      213: 2874020450409994788
+    second: sandtiles_69
+  - first:
+      213: -4058489424517177539
+    second: sandtiles_70
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 88
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sandtiles_0
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 1603
+        width: 63
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d8f63c031f15554f9b67141c106b0bf
+      internalID: -2628444993156708228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandtiles_1
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 1645
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8e3b6fc94b18e841ae34796f68d158d
+      internalID: -7364080467385330452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandtiles_2
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 1660
+        width: 63
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c01ec128d7370e4bbf03e2c9a43df84
+      internalID: -4869676535605130677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandtiles_3
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1336
+        width: 63
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1a160e96539ffd4f9c3d2dd691c83ee
+      internalID: 7548030001662799376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandtiles_4
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 1334
+        width: 63
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bde53e73146503438c0684b6cee7f71
+      internalID: -1148887497646222707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandtiles_5
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 1301
+        width: 63
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 889d48b35ce813a419575c183e90b60c
+      internalID: 1024761389991171738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandtiles_6
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 1141
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56f372e806a383748b6efa14cea97a3e
+      internalID: 4451395515279257022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandtiles_7
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 931
+        width: 267
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec0f53d085f2fb84cb0aa8fb82d56918
+      internalID: -6593108626046385868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandtiles_8
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 756
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8429edbc7831a3e4ca725ba5b2075e84
+      internalID: -6391824144381836569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandtiles_9
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 756
+        width: 267
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a98b3001349344d819a624ab119899
+      internalID: 7563994067167538004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandtiles_10
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 580
+        width: 63
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 811e7504f101287489ffd86b26b32e26
+      internalID: -2828315948608501597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sandtiles_11
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 492
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a11dd96e3a1cf948b6c8ca52366e43b
+      internalID: -4981267914767600530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f71067fb7869ebe4ca1e9dd2c6d98d1e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
