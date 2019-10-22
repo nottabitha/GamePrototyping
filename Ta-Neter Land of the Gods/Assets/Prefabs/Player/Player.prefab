@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 2758273779534361921}
   - component: {fileID: 1088384826249291186}
   - component: {fileID: 600223983}
+  - component: {fileID: 62277461}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -324,7 +325,7 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0.018844092, y: 0.040828876}
   m_AutoConfigureDistance: 0
   m_Distance: 0.005
   m_MaxDistanceOnly: 0
@@ -454,8 +455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cebb06a05618a543a0cf840e2338c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 7
-  numOfHearts: 7
+  Health: 10
+  numOfHearts: 10
   hearts:
   - {fileID: 0}
   - {fileID: 0}
@@ -467,8 +468,24 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  fullHeart: {fileID: 21300000, guid: 59df45975c13c3c40984da501c602076, type: 3}
-  emptyHeart: {fileID: 21300000, guid: 1c259b787d8ff8f47bad9c6d547c21c4, type: 3}
+  fullHeart: {fileID: 21300000, guid: b1c91597dd600334f8aa36b99c143394, type: 3}
+  emptyHeart: {fileID: 21300000, guid: 85d6531443194134a983bfb37ac9fe45, type: 3}
+--- !u!70 &62277461
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2758273778750944725}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0827917, y: 0.17593184}
+  m_Size: {x: 1.2662683, y: 1.0799886}
+  m_Direction: 1
 --- !u!1 &3849565501818703360
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +553,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ee870c41199263041bdedb02c0dc5482, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

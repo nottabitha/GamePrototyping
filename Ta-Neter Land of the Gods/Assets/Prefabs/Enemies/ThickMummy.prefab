@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6643164768169400956}
   - component: {fileID: 5690200239435647194}
   - component: {fileID: -6104967727883478217}
+  - component: {fileID: 1904708019}
+  - component: {fileID: 1904708020}
   m_Layer: 0
   m_Name: ThickMummy
   m_TagString: Untagged
@@ -122,6 +124,43 @@ MonoBehaviour:
   minAttackCooldown: 0.5
   maxAttackCooldown: 2
   speed: 5
-  waypoints: []
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
   health: 1
   player: {fileID: 2758273778750944725, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
+--- !u!111 &1904708019
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6973622943705382914}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: a1f7d92ac575fa848833f1bda9be2d76, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: a1f7d92ac575fa848833f1bda9be2d76, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &1904708020
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6973622943705382914}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 67d8d8fd55ce2e545b38e8d3002e166e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
