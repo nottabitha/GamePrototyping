@@ -6,19 +6,22 @@ public class anubisScript : MonoBehaviour
 {
 	private Animator animator;
 	
-	public float minAttackCooldown = 0.5f;
-	public float maxAttackCooldown = 2f;
+	public float minAttackCooldown = .5f;
+	public float maxAttackCooldown = .2f;
+    public float bossCooldown = 10f;
 	public float speed = 5;
     public Transform[] waypoints;
     int currentWaypointIndex;
     public healthBar healthBar;
     public GameObject healthBarObject;
+    public GameObject laser;
+    public Transform laserPoint;
+
 
     public bool phase1 = false;
     public bool phase2 = false;
 
-    public float minLaserCooldown = 2.0f;
-    public float maxLaserCooldown = 3.0f;
+    public Rigidbody2D laserRB;
 
     private float health = 1f;
     private float aiCooldown;
@@ -26,22 +29,23 @@ public class anubisScript : MonoBehaviour
 	private bool isWalking;
     private Transform currentWaypoint;
 
-    private GameObject laser;
     private laser laserScript;
     private GameObject player;
-    private float laserCooldown;
+    private float laserCooldown = .7f;
 
     void Awake()
 	{
         //animator = GetComponent<Animator>();
         //healthBarObject = GetComponent<GameObject>();
         healthBar = healthBarObject.GetComponent<healthBar>();
-        laser = GameObject.Find("Laser");
+        //laser = GetComponent<GameObject>();
+        laserRB = laser.GetComponent<Rigidbody2D>();
+        laserPoint = GetComponent<Transform>();
 
         laserScript = laser.GetComponent<laser>();
         player = GameObject.Find("Player");
 
-        laserScript.enabled = false;
+        //laserScript.enabled = false;
     }		
     // Start is called before the first frame update
     void Start()
@@ -83,7 +87,7 @@ public class anubisScript : MonoBehaviour
 
 	void Direction ()
 	{
-        if (Vector3.Distance(transform.parent.position, currentWaypoint.position) < .5f)
+        if (Vector3.Distance(transform.parent.position, currentWaypoint.position) < .05f)
         {
             Debug.Log((Vector3.Distance(transform.parent.position, currentWaypoint.position)));
             if (currentWaypointIndex + 1 < waypoints.Length)
@@ -141,16 +145,27 @@ public class anubisScript : MonoBehaviour
     private void Phase1()
     {
         healthBarObject.SetActive(true);
+        laserCooldown -= Time.deltaTime;
+        bossCooldown -= Time.deltaTime;
 
-        aiCooldown -= Time.deltaTime;
-        /*
-        if (laserCooldown <= 0f)
+        if (bossCooldown > 0f)
         {
-            laserScript.enabled = false;
-            laserCooldown = Random.Range(minLaserCooldown, maxLaserCooldown);
+            if (laserCooldown <= 0f)
+            {
+                //laserScript.enabled = false;
+                Instantiate(laser, laserPoint.position, Quaternion.identity);
+                laserCooldown = .7f;
+            }
         }
-        else
-        */
-        laserScript.enabled = true;
+        else if (bossCooldown <= 0f)
+        {
+            Phase1BossBreak(5f);
+            bossCooldown = 10f;
+        }
+    }
+
+    IEnumerator Phase1BossBreak(float time)
+    {
+        yield return new WaitForSeconds(time);
     }
 }
