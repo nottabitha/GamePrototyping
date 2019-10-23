@@ -154,6 +154,16 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.7169812
       objectReference: {fileID: 0}
+    - target: {fileID: 5692104918389252250, guid: 948a4efd1cb07434bbe1985098fd1a32,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.6257019
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692104918389252250, guid: 948a4efd1cb07434bbe1985098fd1a32,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 7.54628
+      objectReference: {fileID: 0}
     - target: {fileID: 9075661908827781319, guid: 948a4efd1cb07434bbe1985098fd1a32,
         type: 3}
       propertyPath: m_SortingOrder
