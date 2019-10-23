@@ -23,6 +23,8 @@ public class anubisScript : MonoBehaviour
 
     public Rigidbody2D laserRB;
 
+    public AudioSource anubisRoar;
+
     private float health = 1f;
     private float aiCooldown;
 	private bool isAttacking;
@@ -32,6 +34,7 @@ public class anubisScript : MonoBehaviour
     private laser laserScript;
     private GameObject player;
     private float laserCooldown = .7f;
+    private bool phase1Roar = false;
 
     void Awake()
 	{
@@ -44,6 +47,10 @@ public class anubisScript : MonoBehaviour
 
         laserScript = laser.GetComponent<laser>();
         player = GameObject.Find("Player");
+
+        healthBarObject.SetActive(false);
+
+        anubisRoar = GetComponent<AudioSource>();
 
         //laserScript.enabled = false;
     }		
@@ -144,23 +151,31 @@ public class anubisScript : MonoBehaviour
 
     private void Phase1()
     {
-        healthBarObject.SetActive(true);
-        laserCooldown -= Time.deltaTime;
-        bossCooldown -= Time.deltaTime;
-
-        if (bossCooldown > 0f)
+        anubisRoar.Play();
+        if (!anubisRoar.isPlaying)
         {
-            if (laserCooldown <= 0f)
-            {
-                //laserScript.enabled = false;
-                Instantiate(laser, laserPoint.position, Quaternion.identity);
-                laserCooldown = .7f;
-            }
+            phase1Roar = true;
         }
-        else if (bossCooldown <= 0f)
+        if (phase1Roar)
         {
-            Phase1BossBreak(5f);
-            bossCooldown = 10f;
+            healthBarObject.SetActive(true);
+            laserCooldown -= Time.deltaTime;
+            bossCooldown -= Time.deltaTime;
+
+            if (bossCooldown > 0f)
+            {
+                if (laserCooldown <= 0f)
+                {
+                    //laserScript.enabled = false;
+                    Instantiate(laser, laserPoint.position, Quaternion.identity);
+                    laserCooldown = .7f;
+                }
+            }
+            else if (bossCooldown <= 0f)
+            {
+                Phase1BossBreak(5f);
+                bossCooldown = 10f;
+            }
         }
     }
 
