@@ -42061,7 +42061,7 @@ Tilemap:
   - m_RefCount: 4523
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3019608, g: 0.25490198, b: 0.043137256, a: 1}
   m_Origin: {x: -10, y: -92, z: 0}
   m_Size: {x: 497, y: 132, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -42590,7 +42590,7 @@ Tilemap:
   - m_RefCount: 34
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.7372549, g: 0.7372549, b: 0.7372549, a: 1}
+  m_Color: {r: 0.11372549, g: 0.09411765, b: 0, a: 1}
   m_Origin: {x: 0, y: -1, z: 0}
   m_Size: {x: 119, y: 21, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -43960,7 +43960,7 @@ PrefabInstance:
     - target: {fileID: 6458333096136651698, guid: edc7193f35903504eadb4fda1e7f3e9c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6458333096136651726, guid: edc7193f35903504eadb4fda1e7f3e9c,
         type: 3}
@@ -80781,7 +80781,7 @@ Tilemap:
   - m_RefCount: 4059
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.25490198, g: 0.21960784, b: 0.07450981, a: 1}
   m_Origin: {x: -7, y: -24, z: 0}
   m_Size: {x: 139, y: 60, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
