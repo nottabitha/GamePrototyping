@@ -43527,7 +43527,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361986246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.52, y: 2.01, z: 0.09994}
+  m_LocalPosition: {x: 48.52, y: 2.01, z: 0}
   m_LocalScale: {x: 2.9760368, y: 2.9760368, z: 2.9760368}
   m_Children:
   - {fileID: 107237327}
@@ -43591,6 +43591,7 @@ MonoBehaviour:
   phase2: 0
   laserRB: {fileID: 8016360716069662203, guid: 295137d9aeea9d44897964e02c9e234c, type: 3}
   anubisRoar: {fileID: 0}
+  laserHit: {fileID: 0}
 --- !u!95 &1361986253
 Animator:
   serializedVersion: 3
@@ -81748,17 +81749,17 @@ PrefabInstance:
     - target: {fileID: 712745122070444825, guid: 747559551491c024da301e9ee6d41daf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.521
+      value: -0.24
       objectReference: {fileID: 0}
     - target: {fileID: 712745122070444825, guid: 747559551491c024da301e9ee6d41daf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.498
+      value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 712745122070444825, guid: 747559551491c024da301e9ee6d41daf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.1730413
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 712745122070444825, guid: 747559551491c024da301e9ee6d41daf,
         type: 3}

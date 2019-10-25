@@ -5,40 +5,46 @@ using UnityEngine;
 public class laser : MonoBehaviour
 {
     private LineRenderer lineRenderer;
-    public Transform laserHit;
-    public Transform laserTarget;
     public int speed = 10;
-    public Vector3 playerTarget;
     public Rigidbody2D rb;
 
-    public Transform laserPoint;
+    public GameObject laserPoint;
 
     private GameObject player;
     private health healthScript;
     private Vector3 target;
-    Vector3 direction;
+    private Vector3 laserHitPoint;
+    private Vector3 direction;
+
+    private RaycastHit2D hit;
+
+    private bool raycastDone = false;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
-        laserPoint = GetComponent<Transform>();
-        playerTarget = player.transform.position;
+        laserPoint = GameObject.Find("LaserPoint");
         healthScript = player.GetComponent<health>();
-
 
         //lineRenderer = GetComponent<LineRenderer>();
         //laserTarget = GetComponent<Transform>();
         //lineRenderer.enabled = false;
         //lineRenderer.useWorldSpace = true;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (raycastDone == false)
+        {
+            Attacking();
+        }
+
         LaserUpdate();
 
-        if ( Vector3.Distance(transform.position, playerTarget) < .5f)
+        if ( Vector3.Distance(transform.position, player.transform.position) < .5f)
         {
             Arrived();
         }
@@ -51,7 +57,6 @@ public class laser : MonoBehaviour
 
     private void LaserUpdate()
     {
-        direction = (playerTarget - laserPoint.position).normalized;
         transform.Translate(direction * Time.deltaTime * speed);
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position, Mathf.Infinity);
         //laserHit.position = hit.point;
@@ -69,5 +74,15 @@ public class laser : MonoBehaviour
             healthScript.Health -= 1;
             Destroy(gameObject);
         }
+    }
+
+    void Attacking()
+    {
+        direction = (player.transform.position - laserPoint.transform.position).normalized;
+        hit = Physics2D.Raycast(laserPoint.transform.position, direction, Mathf.Infinity);
+        Debug.DrawRay(laserPoint.transform.position, player.transform.position - laserPoint.transform.position);
+        laserHitPoint = hit.point;
+
+        raycastDone = true;
     }
 }

@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8016360716069662201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.59, y: -0.29, z: -10.193956}
+  m_LocalPosition: {x: -1.59, y: -0.29, z: 0}
   m_LocalScale: {x: 0.6334543, y: 0.051900677, z: 1.4195056}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 02a93a09bf646c9429194f9f3fb54740, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -95,9 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  playerTarget: {x: 0, y: 0, z: 0}
   rb: {fileID: 8016360716069662203}
-  anubis: {fileID: 5687138782717411749, guid: efb1adbd281ee9f4080488a0b06d9680, type: 3}
   laserPoint: {fileID: 712745122070444824, guid: 747559551491c024da301e9ee6d41daf,
     type: 3}
 --- !u!50 &8016360716069662203

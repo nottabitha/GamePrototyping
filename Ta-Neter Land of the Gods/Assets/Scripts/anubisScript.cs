@@ -15,7 +15,7 @@ public class anubisScript : MonoBehaviour
     public healthBar healthBar;
     public GameObject healthBarObject;
     public GameObject laser;
-    public Transform laserPoint;
+    public GameObject laserPoint;
 
 
     public bool phase1 = false;
@@ -36,6 +36,8 @@ public class anubisScript : MonoBehaviour
     private float laserCooldown = .7f;
     private bool phase1Roar = false;
 
+    public Transform laserHit;
+
     void Awake()
 	{
         //animator = GetComponent<Animator>();
@@ -43,7 +45,7 @@ public class anubisScript : MonoBehaviour
         healthBar = healthBarObject.GetComponent<healthBar>();
         //laser = GetComponent<GameObject>();
         laserRB = laser.GetComponent<Rigidbody2D>();
-        laserPoint = GetComponent<Transform>();
+        laserPoint = GameObject.Find("LaserPoint");
 
         laserScript = laser.GetComponent<laser>();
         player = GameObject.Find("Player");
@@ -72,13 +74,13 @@ public class anubisScript : MonoBehaviour
     	//move or attack 
 		//animator.SetBool("Walking", isWalking);
 
-        Attacking();
+        //Attacking();
+
         //Movement
 		//Direction ();
 
         if (phase1 == true)
         {
-            Debug.Log("Hello");
             Phase1();
         }
     }
@@ -144,11 +146,14 @@ public class anubisScript : MonoBehaviour
         }
     }
 
+    /*
     void Attacking()
     {
-        //Physics2D.Raycast(laserPosition.transform.position, player.transform.position, Mathf.Infinity);
+        Vector3 direction = (player.transform.position - laserPoint.position).normalized;
+        RaycastHit2D hit = Physics2D.Raycast(laserPoint.transform.position, direction, Mathf.Infinity);
+        laserHit.position = hit.point;
     }
-
+    */
     private void Phase1()
     {
         anubisRoar.Play();
@@ -167,7 +172,7 @@ public class anubisScript : MonoBehaviour
                 if (laserCooldown <= 0f)
                 {
                     //laserScript.enabled = false;
-                    Instantiate(laser, laserPoint.position, Quaternion.identity);
+                    Instantiate(laser, laserPoint.transform.position, Quaternion.identity);
                     laserCooldown = .7f;
                 }
             }
