@@ -12,6 +12,7 @@ public class playerController : MonoBehaviour
     public health healthScript;
     public bool isAttacking;
     public Animator animator;
+	public static Rigidbody2D rb;
 
 
     private bool isWalking;
