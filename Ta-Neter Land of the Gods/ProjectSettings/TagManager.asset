@@ -9,6 +9,7 @@ TagManager:
   - Bat
   - Spike
   - TileBase
+  - Boss
   layers:
   - Default
   - TransparentFX

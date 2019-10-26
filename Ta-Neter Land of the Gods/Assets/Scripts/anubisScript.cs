@@ -16,6 +16,7 @@ public class anubisScript : MonoBehaviour
     public GameObject healthBarObject;
     public GameObject laser;
     public GameObject laserPoint;
+    public GameObject weapon;
 
 
     public bool phase1 = false;
@@ -35,6 +36,10 @@ public class anubisScript : MonoBehaviour
     private GameObject player;
     private float laserCooldown = .7f;
     private bool phase1Roar = false;
+    private Transform weaponPivot;
+    private Transform attackPoint;
+    private Transform weaponAttackPoint;
+    private bool anubisAttackStart = true;
 
     public Transform laserHit;
 
@@ -54,6 +59,10 @@ public class anubisScript : MonoBehaviour
 
         anubisRoar = GetComponent<AudioSource>();
 
+        weaponPivot = GameObject.Find("WeaponPivot").transform;
+        attackPoint = GameObject.Find("AttackPoint").transform;
+        weaponAttackPoint = GameObject.Find("WeaponAttackPoint").transform;
+
         //laserScript.enabled = false;
     }		
     // Start is called before the first frame update
@@ -71,17 +80,22 @@ public class anubisScript : MonoBehaviour
     {
         	
     	aiCooldown -= Time.deltaTime;
-    	//move or attack 
-		//animator.SetBool("Walking", isWalking);
+        //move or attack 
+        //animator.SetBool("Walking", isWalking);
 
         //Attacking();
 
         //Movement
-		//Direction ();
+        //Direction ();
 
         if (phase1 == true)
         {
             Phase1();
+        }
+
+        if (phase2 == true)
+        {
+            //Phase2();
         }
     }
     
@@ -140,7 +154,7 @@ public class anubisScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && gameObject.tag == "Boss")
         {
             TakeDamage();
         }
@@ -154,6 +168,27 @@ public class anubisScript : MonoBehaviour
         laserHit.position = hit.point;
     }
     */
+    private void Phase2()
+    {
+        laserCooldown -= Time.deltaTime;
+        bossCooldown -= Time.deltaTime;
+
+        if (bossCooldown > 0f)
+        {
+            if (laserCooldown <= 0f)
+            {
+                //laserScript.enabled = false;
+                Instantiate(laser, laserPoint.transform.position, Quaternion.identity);
+                laserCooldown = .7f;
+            }
+        }
+        else if (bossCooldown <= 0f)
+        {
+            Phase2BossBreak(5f);
+            bossCooldown = 10f;
+        }
+    }
+
     private void Phase1()
     {
         anubisRoar.Play();
@@ -164,27 +199,41 @@ public class anubisScript : MonoBehaviour
         if (phase1Roar)
         {
             healthBarObject.SetActive(true);
-            laserCooldown -= Time.deltaTime;
-            bossCooldown -= Time.deltaTime;
 
-            if (bossCooldown > 0f)
-            {
-                if (laserCooldown <= 0f)
-                {
-                    //laserScript.enabled = false;
-                    Instantiate(laser, laserPoint.transform.position, Quaternion.identity);
-                    laserCooldown = .7f;
-                }
-            }
-            else if (bossCooldown <= 0f)
-            {
-                Phase1BossBreak(5f);
-                bossCooldown = 10f;
-            }
+            Attacking();
         }
     }
 
-    IEnumerator Phase1BossBreak(float time)
+    private void Attacking()
+    {
+        if (anubisAttackStart)
+        {
+            if (weaponPivot.transform.rotation != Quaternion.Euler(0,0,0))
+            {
+                float speed = 5f;
+                weaponPivot.transform.rotation = Quaternion.Slerp(weaponPivot.transform.rotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * speed);
+            }
+            else
+            {
+                anubisAttackStart = false;
+            }
+        }
+
+
+        if (!anubisAttackStart)
+        {
+            if (weaponAttackPoint.transform.position != attackPoint.transform.position)
+            {
+                float speed = 8f;
+                weaponPivot.transform.rotation = Quaternion.Slerp(weaponPivot.transform.rotation, Quaternion.Euler(0, 0, 116.5f), Time.deltaTime * speed);
+            }
+        }
+        
+
+
+    }
+
+    IEnumerator Phase2BossBreak(float time)
     {
         yield return new WaitForSeconds(time);
     }
