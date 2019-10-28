@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AnubisWalk
+  m_Name: AnubisWalkP1
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -21,17 +21,17 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: 48e09ddecd938884a88c20d10c86cb0b, type: 3}
-    - time: 0.13333334
+    - time: 0.11666667
       value: {fileID: 21300000, guid: e87642b26e6227747a98be7451aec2e6, type: 3}
-    - time: 0.26666668
+    - time: 0.23333333
       value: {fileID: 21300000, guid: e4724fe13863b804398b0bca859c9318, type: 3}
-    - time: 0.4
+    - time: 0.35
       value: {fileID: 21300000, guid: 87045b8ae1ba5964c98514cf0659a63b, type: 3}
-    - time: 0.53333336
+    - time: 0.46666667
       value: {fileID: 21300000, guid: a2c2c448c3c10eb4fa99188287e52538, type: 3}
-    - time: 0.6666667
+    - time: 0.5833333
       value: {fileID: 21300000, guid: edde0095de030c1498a2418a0f339f33, type: 3}
-    - time: 0.8
+    - time: 0.7
       value: {fileID: 21300000, guid: 48e09ddecd938884a88c20d10c86cb0b, type: 3}
     attribute: m_Sprite
     path: 
@@ -64,7 +64,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.81666666
+    m_StopTime: 0.71666664
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
