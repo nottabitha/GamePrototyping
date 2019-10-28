@@ -16,8 +16,8 @@ public class anubisScript : MonoBehaviour
     public GameObject healthBarObject;
     public GameObject laser;
     public GameObject laserPoint;
-    public GameObject weapon;
-
+    public float moveSpeed = 5f;
+    public float jumpSpeed = 5f;
 
     public bool phase1 = false;
     public bool phase2 = false;
@@ -36,10 +36,14 @@ public class anubisScript : MonoBehaviour
     private GameObject player;
     private float laserCooldown = .7f;
     private bool phase1Roar = false;
-    private Transform weaponPivot;
-    private Transform attackPoint;
-    private Transform weaponAttackPoint;
     private bool anubisAttackStart = true;
+    private bool pointReached = false;
+    private Vector3 playerPosition;
+
+    private bool start = true;
+
+    public GameObject areaAttack;
+    public Rigidbody2D anubisRB;
 
     public Transform laserHit;
 
@@ -59,10 +63,9 @@ public class anubisScript : MonoBehaviour
 
         anubisRoar = GetComponent<AudioSource>();
 
-        weaponPivot = GameObject.Find("WeaponPivot").transform;
-        attackPoint = GameObject.Find("AttackPoint").transform;
-        weaponAttackPoint = GameObject.Find("WeaponAttackPoint").transform;
+        areaAttack.SetActive(false);
 
+        //areaAttack = GetComponent<GameObject>();
         //laserScript.enabled = false;
     }		
     // Start is called before the first frame update
@@ -73,6 +76,7 @@ public class anubisScript : MonoBehaviour
         //currentWaypoint = waypoints[currentWaypointIndex];
         //isWalking = false;
         //transform.parent.position = currentWaypoint.position;
+
     }
 
     // Update is called once per frame
@@ -195,42 +199,45 @@ public class anubisScript : MonoBehaviour
         if (!anubisRoar.isPlaying)
         {
             phase1Roar = true;
+
         }
         if (phase1Roar)
         {
+            if (start)
+            {
+                playerPosition = player.transform.position;
+                start = false;
+            }
+
             healthBarObject.SetActive(true);
 
-            Attacking();
+            if (transform.position.x != playerPosition.x)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(playerPosition.x, transform.position.y), moveSpeed * Time.deltaTime);
+            }
+            else if (transform.position.x == playerPosition.x)
+            {
+
+                Attacking();
+
+                playerPosition = player.transform.position;
+            }
         }
     }
 
     private void Attacking()
     {
+        anubisAttackStart = true;
+
         if (anubisAttackStart)
         {
-            if (weaponPivot.transform.rotation != Quaternion.Euler(0,0,0))
-            {
-                float speed = 5f;
-                weaponPivot.transform.rotation = Quaternion.Slerp(weaponPivot.transform.rotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * speed);
-            }
-            else
-            {
-                anubisAttackStart = false;
-            }
+            anubisRB.AddForce(transform.up * 75f, ForceMode2D.Impulse);
+
+            areaAttack.SetActive(true);
+
+            anubisAttackStart = false;
         }
-
-
-        if (!anubisAttackStart)
-        {
-            if (weaponAttackPoint.transform.position != attackPoint.transform.position)
-            {
-                float speed = 8f;
-                weaponPivot.transform.rotation = Quaternion.Slerp(weaponPivot.transform.rotation, Quaternion.Euler(0, 0, 116.5f), Time.deltaTime * speed);
-            }
-        }
-        
-
-
+        areaAttack.SetActive(false);
     }
 
     IEnumerator Phase2BossBreak(float time)
