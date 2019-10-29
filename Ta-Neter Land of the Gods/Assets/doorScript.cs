@@ -5,10 +5,10 @@ using UnityEngine;
 public class doorScript : MonoBehaviour
 {
     public Animator doorAnimator;
+    public bool animDone = false;
     // Start is called before the first frame update
     void Start()
     {
-        doorAnimator = GetComponent<Animator>();
         doorAnimator.SetBool("isOpening", false);
     }
 
@@ -22,7 +22,12 @@ public class doorScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            doorAnimator.SetBool("isOpening", true);
+            if (!animDone)
+            {
+                Debug.Log("hello");
+                doorAnimator.SetBool("isOpening", true);
+                animDone = true;
+            }
         }
     }
 }

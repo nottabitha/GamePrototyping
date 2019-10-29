@@ -94,13 +94,14 @@ public class anubisScript : MonoBehaviour
 
         if (phase1 == true)
         {
-            Phase1();
+            //Phase1();
         }
 
         if (phase2 == true)
         {
             //Phase2();
         }
+        Phase2();
     }
     
     private void TakeDamage()

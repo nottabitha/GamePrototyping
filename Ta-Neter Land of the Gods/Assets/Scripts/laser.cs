@@ -44,7 +44,7 @@ public class laser : MonoBehaviour
 
         LaserUpdate();
 
-        if ( Vector3.Distance(transform.position, player.transform.position) < .5f)
+        if ( Vector3.Distance(transform.position, laserHitPoint) < .5f)
         {
             Arrived();
         }

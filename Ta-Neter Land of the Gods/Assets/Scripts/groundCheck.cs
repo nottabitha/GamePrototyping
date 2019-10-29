@@ -9,7 +9,9 @@ public class groundCheck : MonoBehaviour {
 
 	bool coroutineAllowed, grounded;
 
-	void OnTriggerEnter2D (Collider2D col)
+    public Rigidbody2D playerRB;
+
+    void OnTriggerEnter2D (Collider2D col)
 	{
 		if (col.gameObject.tag.Equals ("TileBase"))
 			grounded = true;
@@ -28,16 +30,16 @@ public class groundCheck : MonoBehaviour {
 
 	void Update()
 	{
-		if (grounded && playerController.rb.velocity.x != 0 && coroutineAllowed) {
+		if (grounded && playerRB.velocity.x != 0 && coroutineAllowed) {
 				StartCoroutine ("SpawnCloud");
 				coroutineAllowed = false;
 		}
 
-		if (playerController.rb.velocity.x == 0 || !grounded) {
+		if (playerRB.velocity.x == 0 || !grounded) {
 				StopCoroutine ("SpawnCloud");
 				coroutineAllowed = true;
 		}
-	}
+    }
 
 
 	IEnumerator SpawnCloud()
