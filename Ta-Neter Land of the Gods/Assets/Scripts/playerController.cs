@@ -75,6 +75,7 @@ public class playerController : MonoBehaviour
             }
             animator.SetBool("Walking", isWalking);
             transform.position += Vector3.right * speed * Time.deltaTime;
+			footsteps.Play();
         }
         else if (Input.GetKey(KeyCode.A))
         {
