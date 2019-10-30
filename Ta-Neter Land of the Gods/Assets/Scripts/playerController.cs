@@ -12,6 +12,7 @@ public class playerController : MonoBehaviour
     public health healthScript;
     public bool isAttacking;
     public Animator animator;
+    public AudioSource footsteps;
 	//public static Rigidbody2D rb;
 
 
@@ -43,6 +44,8 @@ public class playerController : MonoBehaviour
         }
 
         animator = GetComponent<Animator>();
+
+        footsteps = GetComponent<AudioSource>();
     }
     void Update()
 	{

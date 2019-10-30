@@ -41,6 +41,7 @@ public class anubisScript : MonoBehaviour
     private Vector3 playerPosition;
 
     private bool start = true;
+    private bool roarDone = false;
 
     public GameObject areaAttack;
     public Rigidbody2D anubisRB;
@@ -94,14 +95,13 @@ public class anubisScript : MonoBehaviour
 
         if (phase1 == true)
         {
-            //Phase1();
+            Phase1();
         }
 
         if (phase2 == true)
         {
             //Phase2();
         }
-        Phase2();
     }
     
     private void TakeDamage()
@@ -196,20 +196,20 @@ public class anubisScript : MonoBehaviour
 
     private void Phase1()
     {
-        anubisRoar.Play();
+        if (start)
+        {
+            anubisRoar.Play();
+            playerPosition = player.transform.position;
+            start = false;
+        }
+
         if (!anubisRoar.isPlaying)
         {
-            phase1Roar = true;
-
+            roarDone = true;
         }
-        if (phase1Roar)
-        {
-            if (start)
-            {
-                playerPosition = player.transform.position;
-                start = false;
-            }
 
+        if (roarDone)
+        {
             healthBarObject.SetActive(true);
 
             if (transform.position.x != playerPosition.x)
