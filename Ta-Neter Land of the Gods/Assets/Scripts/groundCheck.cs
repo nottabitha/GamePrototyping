@@ -10,6 +10,9 @@ public class groundCheck : MonoBehaviour {
 	bool coroutineAllowed, grounded;
 
     public Rigidbody2D playerRB;
+    public GameObject player;
+
+    private float lastPosition = 0;
 
     void OnTriggerEnter2D (Collider2D col)
 	{
@@ -28,23 +31,29 @@ public class groundCheck : MonoBehaviour {
 
 	}
 
-	void Update()
+
+    void Update()
 	{
-		if (grounded && playerRB.velocity.x != 0 && coroutineAllowed) {
+
+		if (grounded && player.transform.position.x != lastPosition && coroutineAllowed) {
 				StartCoroutine ("SpawnCloud");
 				coroutineAllowed = false;
 		}
 
-		if (playerRB.velocity.x == 0 || !grounded) {
+		if (player.transform.position.x == lastPosition || !grounded) {
 				StopCoroutine ("SpawnCloud");
 				coroutineAllowed = true;
 		}
+
+        lastPosition = player.transform.position.x;
+
+        Debug.Log(player.transform.position.x);
     }
 
 
 	IEnumerator SpawnCloud()
 	{
-		while (grounded) {
+		while (grounded && player.transform.position.x != lastPosition) {
 			Instantiate (dustCloud, transform.position, dustCloud.transform.rotation);
 			yield return new WaitForSeconds (0.25f);
 		}

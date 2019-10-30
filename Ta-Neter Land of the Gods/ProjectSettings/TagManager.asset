@@ -10,6 +10,7 @@ TagManager:
   - Spike
   - TileBase
   - Boss
+  - Ground
   layers:
   - Default
   - TransparentFX

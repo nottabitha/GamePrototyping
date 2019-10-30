@@ -39,9 +39,11 @@ public class anubisScript : MonoBehaviour
     private bool anubisAttackStart = true;
     private bool pointReached = false;
     private Vector3 playerPosition;
+    private float maxVelocity = 10f;
 
     private bool start = true;
     private bool roarDone = false;
+    private bool isGrounded;
 
     public GameObject areaAttack;
     public Rigidbody2D anubisRB;
@@ -103,7 +105,12 @@ public class anubisScript : MonoBehaviour
             //Phase2();
         }
     }
-    
+
+    private void FixedUpdate()
+    {
+        anubisRB.velocity = Vector3.ClampMagnitude(anubisRB.velocity, maxVelocity);
+    }
+
     private void TakeDamage()
     {
         if (health > .01)
@@ -163,6 +170,19 @@ public class anubisScript : MonoBehaviour
         {
             TakeDamage();
         }
+
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
     }
 
     /*
@@ -212,11 +232,11 @@ public class anubisScript : MonoBehaviour
         {
             healthBarObject.SetActive(true);
 
-            if (transform.position.x != playerPosition.x)
+            if (transform.position.x != playerPosition.x && isGrounded)
             {
                 transform.position = Vector2.MoveTowards(transform.position, new Vector2(playerPosition.x, transform.position.y), moveSpeed * Time.deltaTime);
             }
-            else if (transform.position.x == playerPosition.x)
+            else if (transform.position.x == playerPosition.x && isGrounded)
             {
 
                 Attacking();
