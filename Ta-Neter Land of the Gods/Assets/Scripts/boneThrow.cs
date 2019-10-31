@@ -29,6 +29,7 @@ public class boneThrow : MonoBehaviour
         y1 = target.position.y;
 
         targetStart = target.position;
+
     }
 
     void Update()
@@ -50,8 +51,9 @@ public class boneThrow : MonoBehaviour
         transform.rotation = LookAt2D(nextPos - transform.position);
         transform.position = nextPos;
 
+        Debug.Log(Vector3.Distance(targetStart, nextPos));
         // Do something when we reach the target
-        if (nextPos == targetStart)
+        if (Vector3.Distance(targetStart, nextPos) <= 5.17)
         {
             Arrived();
         }
@@ -65,10 +67,7 @@ public class boneThrow : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.tag == "Player") || (collision.gameObject.tag == "TileBase")) 
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 
     /// 

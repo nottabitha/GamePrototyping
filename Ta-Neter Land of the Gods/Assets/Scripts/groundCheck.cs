@@ -46,8 +46,6 @@ public class groundCheck : MonoBehaviour {
 		}
 
         lastPosition = player.transform.position.x;
-
-        Debug.Log(player.transform.position.x);
     }
 
 

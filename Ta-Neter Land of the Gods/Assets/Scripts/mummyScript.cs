@@ -68,7 +68,6 @@ public class mummyScript : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, currentWaypoint.position) < .5f)
         {
-            Debug.Log((Vector3.Distance(transform.position, currentWaypoint.position)));
             if (currentWaypointIndex + 1 < waypoints.Length)
             {
                 currentWaypointIndex++;
