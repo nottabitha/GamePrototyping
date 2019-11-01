@@ -12,7 +12,7 @@ public class playerController : MonoBehaviour
     public health healthScript;
     public bool isAttacking;
     public Animator animator;
-    public AudioSource footsteps;
+    //public AudioSource footsteps;
 	//public static Rigidbody2D rb;
 
 
@@ -45,7 +45,7 @@ public class playerController : MonoBehaviour
 
         animator = GetComponent<Animator>();
 
-        footsteps = GetComponent<AudioSource>();
+        //footsteps = GetComponent<AudioSource>();
     }
     void Update()
 	{
@@ -68,6 +68,7 @@ public class playerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
+			//footsteps.Play();
             isWalking = true;
             if (transform.localScale.x != 0.39101f)
             {
@@ -75,11 +76,11 @@ public class playerController : MonoBehaviour
             }
             animator.SetBool("Walking", isWalking);
             transform.position += Vector3.right * speed * Time.deltaTime;
-			footsteps.Play();
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            isWalking = true;
+           // footsteps.Play();
+			isWalking = true;
             if (transform.localScale.x != -0.39101f)
             {
                 transform.localScale = new Vector3(-0.39101f, 0.39101f, 0.39101f);
