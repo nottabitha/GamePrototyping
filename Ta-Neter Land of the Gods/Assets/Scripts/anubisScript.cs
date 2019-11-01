@@ -18,7 +18,7 @@ public class anubisScript : MonoBehaviour
     public GameObject laserPoint;
     public float moveSpeed = 5f;
     public float jumpSpeed = 5f;
-
+    public GameObject phase2startwaypoint;
     public bool phase1 = false;
     public bool phase2 = false;
 
@@ -41,7 +41,8 @@ public class anubisScript : MonoBehaviour
     private Vector3 playerPosition;
     private float maxVelocity = 10f;
 
-    private bool start = true;
+    private bool phase1start = true;
+    private bool phase2start = true;
     private bool roarDone = false;
     private bool isGrounded;
 
@@ -102,7 +103,7 @@ public class anubisScript : MonoBehaviour
 
         if (phase2 == true)
         {
-            //Phase2();
+            Phase2();
         }
     }
 
@@ -120,6 +121,7 @@ public class anubisScript : MonoBehaviour
         }
     }
 
+    /*
 	void Direction ()
 	{
         if (Vector3.Distance(transform.parent.position, currentWaypoint.position) < .05f)
@@ -163,7 +165,7 @@ public class anubisScript : MonoBehaviour
 			animator.SetBool("Walking", isWalking);
 		}
 	}
-
+    */
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player" && gameObject.tag == "Boss")
@@ -195,32 +197,45 @@ public class anubisScript : MonoBehaviour
     */
     private void Phase2()
     {
-        laserCooldown -= Time.deltaTime;
-        bossCooldown -= Time.deltaTime;
-
-        if (bossCooldown > 0f)
+        if (phase2start)
         {
-            if (laserCooldown <= 0f)
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(phase2startwaypoint.transform.position.x, transform.position.y), moveSpeed * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, phase2startwaypoint.transform.position) < 1f)
             {
-                //laserScript.enabled = false;
-                Instantiate(laser, laserPoint.transform.position, Quaternion.identity);
-                laserCooldown = .7f;
+                phase2start = false;
             }
         }
-        else if (bossCooldown <= 0f)
+
+        if (!phase2start)
         {
-            Phase2BossBreak(5f);
-            bossCooldown = 10f;
+            laserCooldown -= Time.deltaTime;
+            bossCooldown -= Time.deltaTime;
+
+            if (bossCooldown > 0f)
+            {
+                if (laserCooldown <= 0f)
+                {
+                    //laserScript.enabled = false;
+                    Instantiate(laser, laserPoint.transform.position, Quaternion.identity);
+                    laserCooldown = .7f;
+                }
+            }
+            else if (bossCooldown <= 0f)
+            {
+                Phase2BossBreak(5f);
+                bossCooldown = 10f;
+            }
         }
     }
 
     private void Phase1()
     {
-        if (start)
+        if (phase1start)
         {
             anubisRoar.Play();
             playerPosition = player.transform.position;
-            start = false;
+            phase1start = false;
         }
 
         if (!anubisRoar.isPlaying)
@@ -242,6 +257,12 @@ public class anubisScript : MonoBehaviour
                 Attacking();
 
                 playerPosition = player.transform.position;
+            }
+
+            if (health <= .5f)
+            {
+                phase1 = false;
+                phase2 = true;
             }
         }
     }

@@ -1512,6 +1512,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1768599080}
+  - {fileID: 1225391456}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -52605,6 +52606,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b85905a41792c6e4ebaf2ef3c8fed768, type: 3}
+--- !u!1 &1225391455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1225391456}
+  m_Layer: 0
+  m_Name: Phase2Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1225391456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225391455}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.27, y: -3.88, z: 1.4667969}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 675333249}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1292874067
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52995,6 +53026,7 @@ MonoBehaviour:
   laserPoint: {fileID: 107237326}
   moveSpeed: 5
   jumpSpeed: 5
+  phase2startwaypoint: {fileID: 1225391455}
   phase1: 0
   phase2: 0
   laserRB: {fileID: 8016360716069662203, guid: 295137d9aeea9d44897964e02c9e234c, type: 3}
