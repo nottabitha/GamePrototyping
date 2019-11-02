@@ -168,7 +168,7 @@ public class anubisScript : MonoBehaviour
     */
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" && gameObject.tag == "Boss")
+        if (collision.gameObject.tag == "Player")
         {
             TakeDamage();
         }
@@ -221,6 +221,7 @@ public class anubisScript : MonoBehaviour
                     laserCooldown = .7f;
                 }
             }
+            
             else if (bossCooldown <= 0f)
             {
                 Phase2BossBreak(5f);
