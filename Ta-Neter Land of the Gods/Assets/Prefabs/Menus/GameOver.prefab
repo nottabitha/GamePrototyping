@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2343181819871323777}
   - component: {fileID: 80391981711944197}
   m_Layer: 5
-  m_Name: skull 1
+  m_Name: skull1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,14 +27,14 @@ RectTransform:
   m_GameObject: {fileID: 1964572162703138119}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.78111756, y: 0.78111756, z: 0.78111756}
+  m_LocalScale: {x: 0.5837917, y: 0.5837917, z: 0.5837917}
   m_Children: []
   m_Father: {fileID: 5044240240632435150}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -162.47244, y: 76.69557}
+  m_AnchoredPosition: {x: -128.8, y: 71.338}
   m_SizeDelta: {x: 134.1, y: 134.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2343181819871323777
@@ -99,14 +99,14 @@ RectTransform:
   m_GameObject: {fileID: 2047469083360719102}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.78111756, y: 0.78111756, z: 0.78111756}
+  m_LocalScale: {x: 0.5837917, y: 0.5837917, z: 0.5837917}
   m_Children: []
   m_Father: {fileID: 5044240240632435150}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 174.97034, y: 76.69557}
+  m_AnchoredPosition: {x: 138.01, y: 71.338}
   m_SizeDelta: {x: 134.1, y: 134.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1018458821722047324
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 4730848596889003441}
   - component: {fileID: 422143101906902639}
   m_Layer: 5
-  m_Name: you died red
+  m_Name: GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,14 +171,14 @@ RectTransform:
   m_GameObject: {fileID: 4144519891408170114}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.7968183, y: 6.7968183, z: 6.7968183}
+  m_LocalScale: {x: 5.0798063, y: 5.0798063, z: 5.0798063}
   m_Children: []
   m_Father: {fileID: 5044240240632435150}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: 103}
+  m_AnchoredPosition: {x: -1, y: 91}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4730848596889003441
@@ -222,7 +222,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: YOU DIED
+  m_Text: GAME OVER
 --- !u!1 &4843687943109643570
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,14 +250,14 @@ RectTransform:
   m_GameObject: {fileID: 4843687943109643570}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.78111756, y: 0.78111756, z: 0.78111756}
+  m_LocalScale: {x: 0.55, y: 0.575, z: 0.5837917}
   m_Children: []
   m_Father: {fileID: 5044240240632435150}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.6, y: -0.3}
+  m_AnchoredPosition: {x: 0.19579, y: 0}
   m_SizeDelta: {x: 1137.6, y: 510.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6825399468890930015
@@ -324,7 +324,7 @@ RectTransform:
   m_GameObject: {fileID: 5044240238974165754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.74738, y: 0.74738, z: 0.74738}
   m_Children:
   - {fileID: 5044240240664541968}
   m_Father: {fileID: 5044240240632435150}
@@ -332,7 +332,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -10}
+  m_AnchoredPosition: {x: -0.25263, y: -18.119505}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5044240238974165758
@@ -468,7 +468,7 @@ RectTransform:
   m_GameObject: {fileID: 5044240239170041242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.74738, y: 0.74738, z: 0.74738}
   m_Children:
   - {fileID: 5044240239855154309}
   m_Father: {fileID: 5044240240632435150}
@@ -476,7 +476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -110.000015}
+  m_AnchoredPosition: {x: -0.25263, y: -92.857}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5044240239170041246
@@ -644,7 +644,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -705,7 +705,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2.1}
+  m_AnchoredPosition: {x: 0, y: -2.1000004}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5044240239855154315
@@ -778,7 +778,7 @@ RectTransform:
   m_GameObject: {fileID: 5044240240227704841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.74738, y: 0.74738, z: 0.74738}
   m_Children:
   - {fileID: 5044240240513680523}
   m_Father: {fileID: 5044240240632435150}
@@ -786,7 +786,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -60.00001}
+  m_AnchoredPosition: {x: -0.25263, y: -55.488007}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5044240240227704845
@@ -916,7 +916,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2.1}
+  m_AnchoredPosition: {x: 0, y: -2.1000004}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5044240240513680521
@@ -1077,7 +1077,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2.6}
+  m_AnchoredPosition: {x: 0, y: -2.6000004}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5044240240664541974
@@ -1134,7 +1134,7 @@ GameObject:
   - component: {fileID: 5044240240671953375}
   - component: {fileID: 5044240240671953374}
   m_Layer: 5
-  m_Name: game over r
+  m_Name: AnubisMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1149,14 +1149,14 @@ RectTransform:
   m_GameObject: {fileID: 5044240240671953368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.395195, y: 6.395195, z: 6.395195}
+  m_LocalScale: {x: 2.4982035, y: 2.4982035, z: 2.4982035}
   m_Children: []
   m_Father: {fileID: 5044240240632435150}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: 49.49999}
+  m_AnchoredPosition: {x: 7.2211, y: 36.438995}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5044240240671953375
@@ -1200,4 +1200,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: GAME OVER
+  m_Text: "ANUBIS JUDGES YOU \nWORTHY OF ENTERING THE DUAT"

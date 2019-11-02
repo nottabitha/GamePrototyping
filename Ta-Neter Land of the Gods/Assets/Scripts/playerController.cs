@@ -12,6 +12,8 @@ public class playerController : MonoBehaviour
     public health healthScript;
     public bool isAttacking;
     public Animator animator;
+	public AudioSource playerAudioSource;
+	public AudioClip playerHurtSound;
     //public AudioSource footsteps;
 	//public static Rigidbody2D rb;
 
@@ -106,12 +108,15 @@ public class playerController : MonoBehaviour
             if ((collision.gameObject.tag == "Enemy") || (collision.gameObject.tag == "Bat"))
             {
                 healthScript.Health -= 1;
+				playerAudioSource.PlayOneShot(playerHurtSound);
                 StartCoroutine(Invulnerability());
             }
 
         if (collision.gameObject.tag == "Spike")
         {
-            healthScript.Health = 0;
+            healthScript.Health -= 3;
+			playerAudioSource.PlayOneShot(playerHurtSound);
+			StartCoroutine(Invulnerability());
         }
     }
 
