@@ -221,6 +221,8 @@ MonoBehaviour:
     type: 3}
   playerRB: {fileID: 2758273778750944726}
   player: {fileID: 2758273778750944725}
+  audioSource: {fileID: 0}
+  landingGrunt: {fileID: 0}
 --- !u!1 &1292410435
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,11 +759,13 @@ MonoBehaviour:
   speed: 7
   isSwinging: 0
   maxVelocity: 10
+  player: {fileID: 0}
   healthScript: {fileID: 0}
   isAttacking: 0
   animator: {fileID: 2758273779534361921}
   playerAudioSource: {fileID: 62277452}
   playerHurtSound: {fileID: 8300000, guid: 73bf6ad0922a2d946b14f18059fba6c7, type: 3}
+  playerPivot: {fileID: 0}
 --- !u!232 &837675499446889409
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -769,7 +773,7 @@ DistanceJoint2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2758273778750944725}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 837675500134542358}

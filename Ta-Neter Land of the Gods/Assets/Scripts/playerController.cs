@@ -14,6 +14,7 @@ public class playerController : MonoBehaviour
     public Animator animator;
 	public AudioSource playerAudioSource;
 	public AudioClip playerHurtSound;
+    public GameObject playerPivot;
     //public AudioSource footsteps;
 	//public static Rigidbody2D rb;
 
@@ -45,7 +46,6 @@ public class playerController : MonoBehaviour
             bossCutsceneScript = bossCutsceneObj.GetComponent<bossStartCutscene>();
         }
 
-        animator = GetComponent<Animator>();
 
         //footsteps = GetComponent<AudioSource>();
     }
@@ -72,23 +72,23 @@ public class playerController : MonoBehaviour
         {
 			//footsteps.Play();
             isWalking = true;
-            if (transform.localScale.x != 0.39101f)
+            if (playerPivot.transform.localScale.x != 0.39101f)
             {
-                transform.localScale = new Vector3(0.39101f, 0.39101f, 0.39101f);
+                playerPivot.transform.localScale = new Vector3(0.39101f, 0.39101f, 0f);
             }
             animator.SetBool("Walking", isWalking);
-            transform.position += Vector3.right * speed * Time.deltaTime;
+            playerPivot.transform.position += Vector3.right * speed * Time.deltaTime;
         }
         else if (Input.GetKey(KeyCode.A))
         {
            // footsteps.Play();
 			isWalking = true;
-            if (transform.localScale.x != -0.39101f)
+            if (playerPivot.transform.localScale.x != -0.39101f)
             {
-                transform.localScale = new Vector3(-0.39101f, 0.39101f, 0.39101f);
+                playerPivot.transform.localScale = new Vector3(-0.39101f, 0.39101f, 0f);
             }
             animator.SetBool("Walking", isWalking);
-            transform.position += Vector3.left * speed * Time.deltaTime;
+            playerPivot.transform.position += Vector3.left * speed * Time.deltaTime;
         }
         else
         {

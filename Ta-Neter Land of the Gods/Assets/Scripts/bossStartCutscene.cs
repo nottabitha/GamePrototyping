@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class bossStartCutscene : MonoBehaviour
 {
-    public GameObject Cameratarget1;
     public GameObject Cameratarget2;
     public GameObject Playertarget;
+    public GameObject playerPivot;
     public GameObject player;
     //public GameObject healthBar;
     public GameObject anubis;
@@ -35,7 +35,7 @@ public class bossStartCutscene : MonoBehaviour
     {
         if (cutsceneActive == true)
         {
-            if ((Vector3.Distance(player.transform.position, Playertarget.transform.position) <= .2f) && (Vector3.Distance(position, Cameratarget2.transform.position) < .2f))
+            if ((Vector3.Distance(playerPivot.transform.position, Playertarget.transform.position) <= .2f) && (Vector3.Distance(position, Cameratarget2.transform.position) < .2f))
             {
                 animator.SetBool("Walking", false);
                 blockingTiles.SetActive(true);
@@ -45,12 +45,16 @@ public class bossStartCutscene : MonoBehaviour
             }
             else
             {
-                if (Vector3.Distance(player.transform.position, Playertarget.transform.position) > .2f)
+                if (Vector3.Distance(playerPivot.transform.position, Playertarget.transform.position) > .2f)
                 {
                     animator.SetBool("Walking", true);
-                    player.transform.position += Vector3.right * 3 * Time.deltaTime;
+                    playerPivot.transform.position += Vector3.right * 3 * Time.deltaTime;
                 }
-                if (Vector3.Distance(player.transform.position, Cameratarget2.transform.position) > .2f)
+                else if (Vector3.Distance(playerPivot.transform.position, Playertarget.transform.position) < .2f)
+                {
+                    animator.SetBool("Walking", false);
+                }
+                    if (Vector3.Distance(playerPivot.transform.position, Cameratarget2.transform.position) > .2f)
                 {
                     position += Vector3.right * 4 * Time.deltaTime;
                 }
