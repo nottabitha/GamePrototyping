@@ -11,7 +11,7 @@ public class skelScript : MonoBehaviour
     int currentWaypointIndex;
     public GameObject bone;
     public float fireRate = 1f;
-    public int health = 1;
+    public int health = 2;
     public GameObject player;
 
     private playerController playerScript;

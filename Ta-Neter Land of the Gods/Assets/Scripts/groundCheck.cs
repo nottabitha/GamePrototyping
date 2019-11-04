@@ -11,6 +11,8 @@ public class groundCheck : MonoBehaviour {
 
     public Rigidbody2D playerRB;
     public GameObject player;
+	public AudioSource audioSource;
+	public AudioClip landingGrunt;
 
     private float lastPosition = 0;
 
@@ -20,6 +22,7 @@ public class groundCheck : MonoBehaviour {
 			grounded = true;
 			coroutineAllowed = true;
 			Instantiate (dustCloud, transform.position, dustCloud.transform.rotation);
+			audioSource.PlayOneShot(landingGrunt);
 	}
 
 	void OnTriggerExit2D (Collider2D col)

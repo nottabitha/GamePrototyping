@@ -13,6 +13,8 @@ public class mummyScript : MonoBehaviour
     public int health = 1;
     int currentWaypointIndex;
     public GameObject player;
+	public AudioSource audioSource;     
+	public AudioClip whipImpact;
 
     private playerController playerScript;
     private float aiCooldown;
@@ -114,6 +116,7 @@ public class mummyScript : MonoBehaviour
             if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             {
                 health -= 1;
+				audioSource.PlayOneShot(whipImpact);
                 animator.SetTrigger("Hit");
             }
         }

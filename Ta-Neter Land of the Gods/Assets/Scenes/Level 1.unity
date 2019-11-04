@@ -939,7 +939,7 @@ PrefabInstance:
     - target: {fileID: 4432102972361962677, guid: 2037b0b0982dab840b21fc9aee97b649,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.77
+      value: 12.49
       objectReference: {fileID: 0}
     - target: {fileID: 4432102972361962677, guid: 2037b0b0982dab840b21fc9aee97b649,
         type: 3}
@@ -1745,7 +1745,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.59, y: -0.22903967, z: -10}
+  m_LocalPosition: {x: -5.13, y: 0.030960321, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 201595268}
@@ -3442,7 +3442,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172715868}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7747711491ec9394cb28aec2c07538b6, type: 3}
@@ -22937,12 +22937,12 @@ PrefabInstance:
     - target: {fileID: 2758273778750944728, guid: 703f94711a11f6244bb4db79fffeb504,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.59
+      value: -5.13
       objectReference: {fileID: 0}
     - target: {fileID: 2758273778750944728, guid: 703f94711a11f6244bb4db79fffeb504,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.23
+      value: -1.97
       objectReference: {fileID: 0}
     - target: {fileID: 2758273778750944728, guid: 703f94711a11f6244bb4db79fffeb504,
         type: 3}
@@ -22989,11 +22989,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 837675499446889421, guid: 703f94711a11f6244bb4db79fffeb504,
-        type: 3}
-      propertyPath: playerHurtSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 73bf6ad0922a2d946b14f18059fba6c7, type: 3}
     - target: {fileID: 600223983, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
       propertyPath: hearts.Array.data[0]
       value: 
@@ -23034,22 +23029,6 @@ PrefabInstance:
       propertyPath: hearts.Array.data[9]
       value: 
       objectReference: {fileID: 2009850707}
-    - target: {fileID: 62277452, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1292410436, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1695603475, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1695603474, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
 --- !u!1 &1496744257
@@ -24860,11 +24839,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anubis Door
       objectReference: {fileID: 0}
-    - target: {fileID: 7502882531855481979, guid: 9e5c669d2b0bdf74580eaae3471a710e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5412265346255726561, guid: 9e5c669d2b0bdf74580eaae3471a710e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24922,28 +24896,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e5c669d2b0bdf74580eaae3471a710e, type: 3}
---- !u!1 &6090046218968139731 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7502882531855481979, guid: 9e5c669d2b0bdf74580eaae3471a710e,
+--- !u!95 &6090046218968139732 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6090046218968139732, guid: 9e5c669d2b0bdf74580eaae3471a710e,
     type: 3}
   m_PrefabInstance: {fileID: 6090046218968139730}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &6090046218968139732
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6090046218968139731}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c8060d202dcb20e48b91f30cf99a31db, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
