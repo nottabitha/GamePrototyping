@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4564179405221021318}
   m_Layer: 8
   m_Name: PlayerPivot
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4564179405221021325}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.99, y: 0.95, z: 0}
   m_LocalScale: {x: 0.39101, y: 0.39101, z: 0}
   m_Children:
@@ -101,7 +101,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.08
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -337,80 +337,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2758273778750944728, guid: 703f94711a11f6244bb4db79fffeb504,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2758273778750944728, guid: 703f94711a11f6244bb4db79fffeb504,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2758273778750944728, guid: 703f94711a11f6244bb4db79fffeb504,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2758273778750944726, guid: 703f94711a11f6244bb4db79fffeb504,
-        type: 3}
-      propertyPath: m_Mass
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 837675499446889421, guid: 703f94711a11f6244bb4db79fffeb504,
-        type: 3}
-      propertyPath: playerPivot
-      value: 
-      objectReference: {fileID: 4564179405221021325}
-    - target: {fileID: 600223983, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-      propertyPath: hearts.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 600223983, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-      propertyPath: hearts.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 600223983, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-      propertyPath: hearts.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 600223983, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-      propertyPath: hearts.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 600223983, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-      propertyPath: hearts.Array.data[4]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 600223983, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-      propertyPath: hearts.Array.data[5]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 600223983, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-      propertyPath: hearts.Array.data[6]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 600223983, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-      propertyPath: hearts.Array.data[7]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 600223983, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-      propertyPath: hearts.Array.data[8]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 600223983, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-      propertyPath: hearts.Array.data[9]
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 837675499446889421, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-    - {fileID: 837675499446889409, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-    - {fileID: 2758273778750944726, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-    - {fileID: 2758273778750944729, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-    - {fileID: 62277461, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-    - {fileID: 600223983, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-    - {fileID: 2144023116061833019, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-    - {fileID: 1088384826249291186, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
 --- !u!4 &1806052988222857769 stripped
 Transform:
