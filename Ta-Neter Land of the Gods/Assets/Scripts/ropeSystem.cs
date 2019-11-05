@@ -14,6 +14,9 @@ public class ropeSystem : MonoBehaviour
 	public playerController playerMovement;
     public Rigidbody2D playerRb;
     public float speed;
+    public bool hookAnimation = false;
+    public Animator animator;
+    public GameObject ropeWorldPosition;
 
     private bool ropeAttached;
 	private Vector2 playerPosition;
@@ -139,6 +142,8 @@ public class ropeSystem : MonoBehaviour
             {
                 if (Input.GetMouseButton(0))
                 {
+                    hookAnimation = true;
+                    animator.SetBool("Hook", hookAnimation);
                     // 2
                     if (ropeAttached) return;
                     ropeRenderer.enabled = true;
@@ -167,6 +172,8 @@ public class ropeSystem : MonoBehaviour
                     // 5
                     else
                     {
+                        hookAnimation = false;
+                        animator.SetBool("Hook", hookAnimation);
                         ropeRenderer.enabled = false;
                         ropeAttached = false;
                         ropeJoint.enabled = false;
@@ -184,6 +191,8 @@ public class ropeSystem : MonoBehaviour
             if (Input.GetMouseButton(0))
             {
                 // 2
+                hookAnimation = true;
+                animator.SetBool("Hook", hookAnimation);
                 if (ropeAttached) return;
                 ropeRenderer.enabled = true;
 
@@ -211,6 +220,7 @@ public class ropeSystem : MonoBehaviour
                 // 5
                 else
                 {
+                    hookAnimation = false;
                     ropeRenderer.enabled = false;
                     ropeAttached = false;
                     ropeJoint.enabled = false;
@@ -227,12 +237,14 @@ public class ropeSystem : MonoBehaviour
 	// 6
 	private void ResetRope()
 	{
-		ropeJoint.enabled = false;
+        hookAnimation = false;
+        animator.SetBool("Hook", hookAnimation);
+        ropeJoint.enabled = false;
 		ropeAttached = false;
 		playerMovement.isSwinging = false;
 		ropeRenderer.positionCount = 2;
-		ropeRenderer.SetPosition(0, transform.position);
-		ropeRenderer.SetPosition(1, transform.position);
+		ropeRenderer.SetPosition(0, ropeWorldPosition.transform.position);
+		ropeRenderer.SetPosition(1, ropeWorldPosition.transform.position);
 		ropePositions.Clear();
 		ropeHingeAnchorSprite.enabled = false;
 	}
@@ -264,7 +276,7 @@ public class ropeSystem : MonoBehaviour
 						ropeHingeAnchorRb.transform.position = ropePosition;
 						if (!distanceSet)
 						{
-							ropeJoint.distance = Vector2.Distance(transform.position, ropePosition);
+							ropeJoint.distance = Vector2.Distance(ropeWorldPosition.transform.position, ropePosition);
 							distanceSet = true;
 						}
 					}
@@ -273,7 +285,7 @@ public class ropeSystem : MonoBehaviour
 						ropeHingeAnchorRb.transform.position = ropePosition;
 						if (!distanceSet)
 						{
-							ropeJoint.distance = Vector2.Distance(transform.position, ropePosition);
+							ropeJoint.distance = Vector2.Distance(ropeWorldPosition.transform.position, ropePosition);
 							distanceSet = true;
 						}
 					}
@@ -285,7 +297,7 @@ public class ropeSystem : MonoBehaviour
 					ropeHingeAnchorRb.transform.position = ropePosition;
 					if (!distanceSet)
 					{
-						ropeJoint.distance = Vector2.Distance(transform.position, ropePosition);
+						ropeJoint.distance = Vector2.Distance(ropeWorldPosition.transform.position, ropePosition);
 						distanceSet = true;
 					}
 				}
@@ -293,7 +305,7 @@ public class ropeSystem : MonoBehaviour
 			else
 			{
 				// 6
-				ropeRenderer.SetPosition(i, transform.position);
+				ropeRenderer.SetPosition(i, ropeWorldPosition.transform.position);
 			}
 		}
 	}
