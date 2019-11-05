@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class gameOverScript : MonoBehaviour
 {
@@ -21,16 +22,15 @@ public class gameOverScript : MonoBehaviour
 
     void Update()
     {
-        if (healthScript.Health <= 0)
-        {
-            gameover = true;
-        }
+			if (healthScript.Health <= 0)
+			{
+				gameover = true;
+			}
 
-        if (gameover)
-        {
-            gameOverUI.SetActive(true);
-            Time.timeScale = 0;
-        }
-
+			if (gameover)
+			{
+				gameOverUI.SetActive(true);
+				Time.timeScale = 0;
+			}
     }
 }
