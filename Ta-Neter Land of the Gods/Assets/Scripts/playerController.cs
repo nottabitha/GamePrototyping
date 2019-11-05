@@ -15,6 +15,8 @@ public class playerController : MonoBehaviour
 	public AudioSource playerAudioSource;
 	public AudioClip playerHurtSound;
     public GameObject playerPivot;
+    public GameObject whipObject;
+    public Animation whipColliderAnimation;
     //public AudioSource footsteps;
 	//public static Rigidbody2D rb;
 
@@ -36,6 +38,7 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     private void Awake()
     {
+        whipColliderAnimation = whipObject.GetComponent<Animation>();
         currentScene = SceneManager.GetActiveScene();
 
         player = this.GetComponent<Rigidbody2D>();
@@ -131,13 +134,23 @@ public class playerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            //whipObject.SetActive(true);
             isAttacking = true;
             animator.SetBool("Attack", isAttacking);
+            whipColliderAnimation.Play();
         }
         else
         {
             isAttacking = false;
             animator.SetBool("Attack", isAttacking);
+            //whipColliderWait();
+            //whipColliderAnimation.Stop();
+            //whipObject.SetActive(false);
         }
+    }
+
+    private IEnumerator whipColliderWait()
+    {
+        yield return new WaitForSeconds(2f);
     }
 }
