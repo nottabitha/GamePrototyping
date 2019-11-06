@@ -230,10 +230,8 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
-  health: 2
+  health: 1
   player: {fileID: 2758273778750944725, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
-  audioSource: {fileID: 765504067}
-  whipImpact: {fileID: 8300000, guid: 6748ac3aff0da1e40a2ef6e5d7bf3eab, type: 3}
 --- !u!82 &985900750
 AudioSource:
   m_ObjectHideFlags: 0
@@ -246,7 +244,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e213cc2ba4e5d3043b0eb7aa1c53e57a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.85
+  m_Volume: 0.95
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -341,7 +339,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
