@@ -347,6 +347,18 @@ PrefabInstance:
       propertyPath: waypoints.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3861663130220447651, guid: 03a870c4df422ca42b5c2119ee6d118e,
+        type: 3}
+      propertyPath: rageMeterScript
+      value: 
+      objectReference: {fileID: 5122909972574137087, guid: 73a9b092875c4c44e91517a3063c6d08,
+        type: 3}
+    - target: {fileID: 3861663130220447651, guid: 03a870c4df422ca42b5c2119ee6d118e,
+        type: 3}
+      propertyPath: rageMeter
+      value: 
+      objectReference: {fileID: 1717159534277836598, guid: 73a9b092875c4c44e91517a3063c6d08,
+        type: 3}
     - target: {fileID: 1891460696082811600, guid: 03a870c4df422ca42b5c2119ee6d118e,
         type: 3}
       propertyPath: m_SortingOrder

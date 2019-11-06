@@ -51,7 +51,6 @@ public class boneThrow : MonoBehaviour
         transform.rotation = LookAt2D(nextPos - transform.position);
         transform.position = nextPos;
 
-        Debug.Log(Vector3.Distance(targetStart, nextPos));
         // Do something when we reach the target
         if (Vector3.Distance(targetStart, nextPos) <= 5.17)
         {

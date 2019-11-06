@@ -131,6 +131,10 @@ MonoBehaviour:
   - {fileID: 0}
   health: 1
   player: {fileID: 2758273778750944725, guid: 703f94711a11f6244bb4db79fffeb504, type: 3}
+  rageMeterScript: {fileID: 5122909972574137087, guid: 73a9b092875c4c44e91517a3063c6d08,
+    type: 3}
+  rageMeter: {fileID: 1717159534277836598, guid: 73a9b092875c4c44e91517a3063c6d08,
+    type: 3}
 --- !u!111 &1904708019
 Animation:
   m_ObjectHideFlags: 0

@@ -9,6 +9,9 @@ public class batScript : MonoBehaviour
 	public float speed = 5;
     public Transform[] waypoints;
     int currentWaypointIndex;
+    public rageMeterScript rageMeterScript;
+    public GameObject rageMeter;
+    public int health = 1;
 
 
     private float aiCooldown;
@@ -92,4 +95,24 @@ public class batScript : MonoBehaviour
 	{
         animator.SetTrigger("Hit");
 	}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            {
+                health -= 1;
+            }
+        }
+    }
+
+    private void Death()
+    {
+        if (health <= 0)
+        {
+            rageMeterScript.sizeNormalized = +.0769f;
+            Destroy(gameObject);
+        }
+    }
 }

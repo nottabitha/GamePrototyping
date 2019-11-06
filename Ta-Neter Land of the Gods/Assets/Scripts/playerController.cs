@@ -134,7 +134,7 @@ public class playerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //whipObject.SetActive(true);
+            whipObject.SetActive(true);
             isAttacking = true;
             animator.SetBool("Attack", isAttacking);
             whipColliderAnimation.Play();

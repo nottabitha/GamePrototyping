@@ -13,6 +13,8 @@ public class skelScript : MonoBehaviour
     public float fireRate = 1f;
     public int health = 2;
     public GameObject player;
+    public rageMeterScript rageMeterScript;
+    public GameObject rageMeter;
 
     private playerController playerScript;
     private Transform target;
@@ -123,6 +125,7 @@ public class skelScript : MonoBehaviour
     {
         if (health <= 0)
         {
+            rageMeterScript.sizeNormalized = +.0769f;
             Destroy(gameObject);
         }
     }

@@ -13,6 +13,8 @@ public class mummyScript : MonoBehaviour
     public int health = 1;
     int currentWaypointIndex;
     public GameObject player;
+    public rageMeterScript rageMeterScript;
+    public GameObject rageMeter;
 
     private playerController playerScript;
     private float aiCooldown;
@@ -109,13 +111,10 @@ public class mummyScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Whip")
         {
-            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-            {
-                health -= 1;
-                animator.SetTrigger("Hit");
-            }
+            health -= 1;
+            animator.SetTrigger("Hit");
         }
     }
 
@@ -123,6 +122,7 @@ public class mummyScript : MonoBehaviour
     {
         if (health <= 0)
         {
+            rageMeterScript.sizeNormalized =+ .0769f;
             Destroy(gameObject);
         }
     }
