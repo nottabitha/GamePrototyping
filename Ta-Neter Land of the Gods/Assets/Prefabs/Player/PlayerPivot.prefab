@@ -268,6 +268,7 @@ MonoBehaviour:
   speed: 7
   isSwinging: 0
   maxVelocity: 10
+  attackTagCooldown: 0
   healthScript: {fileID: 0}
   isAttacking: 0
   animator: {fileID: 1806052987431051952}
@@ -277,6 +278,7 @@ MonoBehaviour:
   whipObject: {fileID: 2011040541863141418}
   whipColliderAnimation: {fileID: 2011040541863141415}
   playerDeath: {fileID: 8300000, guid: ca0687a4c437dee42821b88e4107ffea, type: 3}
+  whip: {fileID: 0}
 --- !u!120 &4564179405221021320
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -667,7 +669,7 @@ PrefabInstance:
     - target: {fileID: 2011040542560235269, guid: 46ac9ce52a3b17449a3028ba26f81b1f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.06999937
+      value: 0.069999516
       objectReference: {fileID: 0}
     - target: {fileID: 2011040542560235269, guid: 46ac9ce52a3b17449a3028ba26f81b1f,
         type: 3}
