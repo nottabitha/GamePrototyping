@@ -134,11 +134,7 @@ public class skelScript : MonoBehaviour
         {
 			skelAudioSource.PlayOneShot(skelDeath);
             rageMeterScript.sizeNormalized = +.0769f;
-            boxcollider.enabled = false;
-			if (!skelAudioSource.isPlaying) {
-				Destroy(gameObject);
-			}
+			Destroy(gameObject);
         }
     }
-    
 }

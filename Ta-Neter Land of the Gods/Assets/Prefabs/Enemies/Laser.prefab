@@ -99,6 +99,8 @@ MonoBehaviour:
   rb: {fileID: 8016360716069662203}
   laserPoint: {fileID: 712745122070444824, guid: 747559551491c024da301e9ee6d41daf,
     type: 3}
+  laserParticle: {fileID: 272157840308196410, guid: 95302873fe444b54b81f0a5a117812e7,
+    type: 3}
 --- !u!50 &8016360716069662203
 Rigidbody2D:
   serializedVersion: 4

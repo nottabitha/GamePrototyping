@@ -9,6 +9,7 @@ public class laser : MonoBehaviour
     public Rigidbody2D rb;
 
     public GameObject laserPoint;
+    public GameObject laserParticle;
 
     private GameObject player;
     private health healthScript;
@@ -78,6 +79,7 @@ public class laser : MonoBehaviour
             }
             else
             {
+                Instantiate(laserParticle, transform.position, Quaternion.LookRotation(new Vector3(0, 180, 0)));
                 Destroy(gameObject);
             }
         }

@@ -28,7 +28,7 @@ public class anubisScript : MonoBehaviour
 
     public AudioSource anubisRoar;
 
-    private float health = 1f;
+    private float health = .5f;
     private float aiCooldown;
 	private bool isAttacking = false;
 	private bool isWalking = false;
@@ -132,7 +132,7 @@ public class anubisScript : MonoBehaviour
     {
         if (health > .01)
         {
-            health -= .01f;
+            health -= .02f;
             healthBar.SetSize(health);
         }
     }
@@ -184,15 +184,20 @@ public class anubisScript : MonoBehaviour
     */
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            TakeDamage();
-        }
+        
 
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
 			anubisAudioSource.PlayOneShot(anubisLand);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Whip")
+        {
+            TakeDamage();
         }
     }
 
