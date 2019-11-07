@@ -24,7 +24,6 @@ public class doorScript : MonoBehaviour
         {
             if (!animDone)
             {
-                Debug.Log("hello");
                 doorAnimator.SetBool("isOpening", true);
                 animDone = true;
             }

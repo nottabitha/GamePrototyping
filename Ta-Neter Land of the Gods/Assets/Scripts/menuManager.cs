@@ -13,7 +13,12 @@ public class menuManager : MonoBehaviour
 		Application.LoadLevel(4);
 	}
 
-	public void Quit() 
+    public void Credits()
+    {
+        Application.LoadLevel(5);
+    }
+
+    public void Quit() 
 	{
 		Application.Quit();
 	}

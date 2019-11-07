@@ -182,7 +182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533518374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11, y: 0, z: 0}
+  m_LocalPosition: {x: -0.62, y: -0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1806052988222857769}
@@ -276,6 +276,7 @@ MonoBehaviour:
   playerPivot: {fileID: 4564179405221021325}
   whipObject: {fileID: 2011040541863141418}
   whipColliderAnimation: {fileID: 2011040541863141415}
+  playerDeath: {fileID: 8300000, guid: ca0687a4c437dee42821b88e4107ffea, type: 3}
 --- !u!120 &4564179405221021320
 LineRenderer:
   m_ObjectHideFlags: 0

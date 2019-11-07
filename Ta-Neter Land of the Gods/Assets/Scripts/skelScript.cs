@@ -17,6 +17,7 @@ public class skelScript : MonoBehaviour
     public GameObject rageMeter;
 	public AudioSource skelAudioSource;
 	public AudioClip skelDeath;
+    public BoxCollider2D boxcollider;
 
     private playerController playerScript;
     private Transform target;
@@ -110,16 +111,20 @@ public class skelScript : MonoBehaviour
 			animator.SetBool("Walking", isWalking);
 		}
 	}
-	
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Whip")
         {
-            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-            {
-                animator.SetTrigger("Hit");
-                health -= 1;
-            }
+            health -= 1;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Whip")
+        {
+            health -= 1;
         }
     }
 
@@ -129,6 +134,7 @@ public class skelScript : MonoBehaviour
         {
 			skelAudioSource.PlayOneShot(skelDeath);
             rageMeterScript.sizeNormalized = +.0769f;
+            boxcollider.enabled = false;
 			if (!skelAudioSource.isPlaying) {
 				Destroy(gameObject);
 			}

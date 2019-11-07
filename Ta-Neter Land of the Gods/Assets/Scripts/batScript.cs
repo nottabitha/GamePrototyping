@@ -90,20 +90,20 @@ public class batScript : MonoBehaviour
 			animator.SetBool("Walking", isWalking);
 		}
 	}
-	
-	void OnTriggerEnter2D(Collider2D otherCollider2D)
-	{
-        animator.SetTrigger("Hit");
-	}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Whip")
         {
-            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-            {
-                health -= 1;
-            }
+            health -= 1;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Whip")
+        {
+            health -= 1;
         }
     }
 

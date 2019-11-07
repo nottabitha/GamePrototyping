@@ -118,6 +118,15 @@ public class mummyScript : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Whip")
+        {
+            health -= 1;
+            animator.SetTrigger("Hit");
+        }
+    }
+
     private void Death()
     {
         if (health <= 0)

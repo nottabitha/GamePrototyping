@@ -8,6 +8,7 @@ public class playerController : MonoBehaviour
 	public float speed  = 5; 
 	public bool isSwinging;
     public float maxVelocity;
+    public float attackTagCooldown;
     private Rigidbody2D player;
     public health healthScript;
     public bool isAttacking;
@@ -18,6 +19,7 @@ public class playerController : MonoBehaviour
     public GameObject whipObject;
     public Animation whipColliderAnimation;
 	public AudioClip playerDeath;
+    public GameObject whip;
     //public AudioSource footsteps;
 	//public static Rigidbody2D rb;
 
@@ -140,8 +142,11 @@ public class playerController : MonoBehaviour
 
     private void Attack()
     {
+        attackTagCooldown -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            attackTagCooldown = 1f;
+            whip.tag = "Whip";
             whipObject.SetActive(true);
             isAttacking = true;
             animator.SetBool("Attack", isAttacking);
@@ -154,6 +159,10 @@ public class playerController : MonoBehaviour
             //whipColliderWait();
             //whipColliderAnimation.Stop();
             //whipObject.SetActive(false);
+        }
+        if (attackTagCooldown <= 0)
+        {
+            whip.tag = "Player";
         }
     }
 

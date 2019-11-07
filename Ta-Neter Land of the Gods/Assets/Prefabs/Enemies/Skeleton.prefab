@@ -303,6 +303,9 @@ MonoBehaviour:
     type: 3}
   rageMeter: {fileID: 1717159534277836598, guid: 73a9b092875c4c44e91517a3063c6d08,
     type: 3}
+  skelAudioSource: {fileID: 0}
+  skelDeath: {fileID: 0}
+  boxcollider: {fileID: 276563764764753563}
 --- !u!111 &520489987
 Animation:
   m_ObjectHideFlags: 0
