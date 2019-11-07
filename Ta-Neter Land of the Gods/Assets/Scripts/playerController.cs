@@ -17,6 +17,7 @@ public class playerController : MonoBehaviour
     public GameObject playerPivot;
     public GameObject whipObject;
     public Animation whipColliderAnimation;
+	public AudioClip playerDeath;
     //public AudioSource footsteps;
 	//public static Rigidbody2D rb;
 
@@ -113,6 +114,7 @@ public class playerController : MonoBehaviour
                 healthScript.Health -= 1;
 				playerAudioSource.PlayOneShot(playerHurtSound);
                 StartCoroutine(Invulnerability());
+				StartCoroutine(this.knockback(0.03f, 1000, player.transform.position));
             }
 
         if (collision.gameObject.tag == "Spike")
@@ -120,7 +122,13 @@ public class playerController : MonoBehaviour
             healthScript.Health -= 3;
 			playerAudioSource.PlayOneShot(playerHurtSound);
 			StartCoroutine(Invulnerability());
+			StartCoroutine(this.knockback(0.02f, 1000, player.transform.position));
         }
+
+		if (healthScript.Health <= 0) 
+		{
+			playerAudioSource.PlayOneShot(playerDeath);
+		}
     }
 
     IEnumerator Invulnerability()
@@ -153,4 +161,17 @@ public class playerController : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
     }
+
+	public IEnumerator knockback(float knockDuration, float knockPower, Vector3 knockDirection) 
+	{
+		float timer = 0;
+
+		while(knockDuration > timer) {
+			timer += Time.deltaTime;
+			player.velocity = new Vector2 (0, 0);
+			player.AddForce(new Vector3(-knockDirection.x +10, -knockDirection.y + knockPower, transform.position.z));
+		}
+
+		yield return 0;
+	}
 }

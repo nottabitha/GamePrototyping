@@ -21,6 +21,8 @@ public class anubisScript : MonoBehaviour
     public GameObject phase2startwaypoint;
     public bool phase1 = false;
     public bool phase2 = false;
+	public AudioSource anubisAudioSource;
+	public AudioClip anubisLand;
 
     public Rigidbody2D laserRB;
 
@@ -190,6 +192,7 @@ public class anubisScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+			anubisAudioSource.PlayOneShot(anubisLand);
         }
     }
 

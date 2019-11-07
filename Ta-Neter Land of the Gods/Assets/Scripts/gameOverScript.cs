@@ -9,6 +9,9 @@ public class gameOverScript : MonoBehaviour
     private bool gameover = false;
     private health healthScript;
     public GameObject player;
+	public GameObject musicPlayer;
+	private AudioSource levelMusic;
+	private float originalVolume;
 
 
     // Start is called before the first frame update
@@ -16,6 +19,8 @@ public class gameOverScript : MonoBehaviour
     {
         healthScript = player.GetComponent<health>();
         gameOverUI.SetActive(false);
+		levelMusic = musicPlayer.GetComponent<AudioSource>();
+		originalVolume = levelMusic.volume;
     }
 
     // Update is called once per frame
@@ -29,8 +34,12 @@ public class gameOverScript : MonoBehaviour
 
 			if (gameover)
 			{
+				levelMusic.volume = 0;
 				gameOverUI.SetActive(true);
 				Time.timeScale = 0;
+			}
+			else {
+				levelMusic.volume = originalVolume;
 			}
     }
 }

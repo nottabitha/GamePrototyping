@@ -15,6 +15,8 @@ public class skelScript : MonoBehaviour
     public GameObject player;
     public rageMeterScript rageMeterScript;
     public GameObject rageMeter;
+	public AudioSource skelAudioSource;
+	public AudioClip skelDeath;
 
     private playerController playerScript;
     private Transform target;
@@ -125,8 +127,11 @@ public class skelScript : MonoBehaviour
     {
         if (health <= 0)
         {
+			skelAudioSource.PlayOneShot(skelDeath);
             rageMeterScript.sizeNormalized = +.0769f;
-            Destroy(gameObject);
+			if (!skelAudioSource.isPlaying) {
+				Destroy(gameObject);
+			}
         }
     }
     
