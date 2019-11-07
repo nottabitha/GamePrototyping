@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class anubisScript : MonoBehaviour
 {
-	private Animator animator;
+	public Animator animator;
 	
 	public float minAttackCooldown = .5f;
 	public float maxAttackCooldown = .2f;
@@ -28,9 +28,10 @@ public class anubisScript : MonoBehaviour
 
     private float health = 1f;
     private float aiCooldown;
-	private bool isAttacking;
-	private bool isWalking;
+	private bool isAttacking = false;
+	private bool isWalking = false;
     private Transform currentWaypoint;
+    private float areaAttackTime = 2f;
 
     private laser laserScript;
     private GameObject player;
@@ -48,8 +49,8 @@ public class anubisScript : MonoBehaviour
 
     public GameObject areaAttack;
     public Rigidbody2D anubisRB;
-
-    public Transform laserHit;
+    public Animation laserAnimation;
+    public GameObject laserEye;
 
     void Awake()
 	{
@@ -69,6 +70,8 @@ public class anubisScript : MonoBehaviour
 
         areaAttack.SetActive(false);
 
+        laserEye.SetActive(false);
+
         //areaAttack = GetComponent<GameObject>();
         //laserScript.enabled = false;
     }		
@@ -86,8 +89,18 @@ public class anubisScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        	
-    	aiCooldown -= Time.deltaTime;
+        /*
+        Debug.Log(areaAttackTime);
+        areaAttackTime = -Time.deltaTime;
+
+        if (areaAttackTime <= 0f)
+        {
+            isAttacking = false;
+            animator.SetBool("Attacking", isAttacking);
+            areaAttack.SetActive(false);
+        }
+        */
+        aiCooldown -= Time.deltaTime;
         //move or attack 
         //animator.SetBool("Walking", isWalking);
 
@@ -105,6 +118,7 @@ public class anubisScript : MonoBehaviour
         {
             Phase2();
         }
+
     }
 
     private void FixedUpdate()
@@ -199,11 +213,16 @@ public class anubisScript : MonoBehaviour
     {
         if (phase2start)
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(phase2startwaypoint.transform.position.x, transform.position.y), moveSpeed * Time.deltaTime);
+            isWalking = true;
+            laserEye.SetActive(true);
 
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(phase2startwaypoint.transform.position.x, transform.position.y), moveSpeed * Time.deltaTime);
+            animator.SetBool("Walking", isWalking);
             if (Vector3.Distance(transform.position, phase2startwaypoint.transform.position) < 1f)
             {
                 phase2start = false;
+                isWalking = false;
+                animator.SetBool("Walking", isWalking);
             }
         }
 
@@ -250,11 +269,24 @@ public class anubisScript : MonoBehaviour
 
             if (transform.position.x != playerPosition.x && isGrounded)
             {
+                isWalking = true;
+                animator.SetBool("Walking", isWalking);
                 transform.position = Vector2.MoveTowards(transform.position, new Vector2(playerPosition.x, transform.position.y), moveSpeed * Time.deltaTime);
+               
+                if (anubisRB.velocity.x < 0)
+                {
+                    transform.localScale = new Vector2(2.976037f, 2.976037f);
+                }
+                if (anubisRB.velocity.x > 0)
+                {
+                    transform.localScale = new Vector2(-2.976037f, 2.976037f);
+                }
+                
             }
             else if (transform.position.x == playerPosition.x && isGrounded)
             {
-
+                isWalking = false;
+                animator.SetBool("Walking", isWalking);
                 Attacking();
 
                 playerPosition = player.transform.position;
@@ -271,16 +303,18 @@ public class anubisScript : MonoBehaviour
     private void Attacking()
     {
         anubisAttackStart = true;
-
+        isAttacking = true;
+        animator.SetBool("Attacking", isAttacking);
+        
         if (anubisAttackStart)
         {
             anubisRB.AddForce(transform.up * 75f, ForceMode2D.Impulse);
 
             areaAttack.SetActive(true);
-
+            areaAttackTime = 2f;
             anubisAttackStart = false;
         }
-        areaAttack.SetActive(false);
+        
     }
 
     IEnumerator Phase2BossBreak(float time)
