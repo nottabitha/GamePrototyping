@@ -23,14 +23,15 @@ public class anubisScript : MonoBehaviour
     public bool phase2 = false;
 	public AudioSource anubisAudioSource;
 	public AudioClip anubisLand;
+    public GameObject areaAttacks;
 
     public Rigidbody2D laserRB;
 
     public AudioSource anubisRoar;
 
-    private float health = .5f;
+    private float health = 1f;
     private float aiCooldown;
-	private bool isAttacking = false;
+	public bool isAttacking = false;
 	private bool isWalking = false;
     private Transform currentWaypoint;
     private float areaAttackTime = 2f;
@@ -48,11 +49,13 @@ public class anubisScript : MonoBehaviour
     private bool phase2start = true;
     private bool roarDone = false;
     private bool isGrounded;
+    private float attackBreak;
 
     public GameObject areaAttack;
     public Rigidbody2D anubisRB;
     public Animation laserAnimation;
     public GameObject laserEye;
+
 
     void Awake()
 	{
@@ -74,6 +77,8 @@ public class anubisScript : MonoBehaviour
 
         laserEye.SetActive(false);
 
+        areaAttacks.SetActive(false);
+
         //areaAttack = GetComponent<GameObject>();
         //laserScript.enabled = false;
     }		
@@ -91,17 +96,16 @@ public class anubisScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        Debug.Log(areaAttackTime);
-        areaAttackTime = -Time.deltaTime;
-
-        if (areaAttackTime <= 0f)
+        if (areaAttackTime <= 0)
         {
+            areaAttack.SetActive(false);
             isAttacking = false;
             animator.SetBool("Attacking", isAttacking);
-            areaAttack.SetActive(false);
+            areaAttacks.SetActive(false);
         }
-        */
+
+        attackBreak -= Time.deltaTime;
+        areaAttackTime -= Time.deltaTime;
         aiCooldown -= Time.deltaTime;
         //move or attack 
         //animator.SetBool("Walking", isWalking);
@@ -132,7 +136,7 @@ public class anubisScript : MonoBehaviour
     {
         if (health > .01)
         {
-            health -= .02f;
+            health -= .05f;
             healthBar.SetSize(health);
         }
     }
@@ -184,7 +188,13 @@ public class anubisScript : MonoBehaviour
     */
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (!isAttacking)
+        {
+            if (collision.gameObject.tag == "Whip")
+            {
+                TakeDamage();
+            }
+        }
 
         if (collision.gameObject.CompareTag("Ground"))
         {
@@ -195,9 +205,12 @@ public class anubisScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Whip")
+        if (!isAttacking)
         {
-            TakeDamage();
+            if (collision.gameObject.tag == "Whip")
+            {
+                TakeDamage();
+            }
         }
     }
 
@@ -273,6 +286,8 @@ public class anubisScript : MonoBehaviour
 
         if (roarDone)
         {
+
+
             healthBarObject.SetActive(true);
 
             if (transform.position.x != playerPosition.x && isGrounded)
@@ -295,7 +310,11 @@ public class anubisScript : MonoBehaviour
             {
                 isWalking = false;
                 animator.SetBool("Walking", isWalking);
-                Attacking();
+                if (attackBreak <= 0)
+                {
+                    attackBreak = 5f;
+                    Attacking();
+                }
 
                 playerPosition = player.transform.position;
             }
@@ -310,16 +329,16 @@ public class anubisScript : MonoBehaviour
 
     private void Attacking()
     {
+        areaAttackTime = 2f;
         anubisAttackStart = true;
         isAttacking = true;
         animator.SetBool("Attacking", isAttacking);
+        areaAttacks.SetActive(true);
         
         if (anubisAttackStart)
         {
             anubisRB.AddForce(transform.up * 75f, ForceMode2D.Impulse);
-
             areaAttack.SetActive(true);
-            areaAttackTime = 2f;
             anubisAttackStart = false;
         }
         

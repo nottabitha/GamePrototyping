@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80226fc838c0ce4468e419aa716b555e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bar: {fileID: 7386787100702204361}
+  bar: {fileID: 8879709106917390954}
   sizeNormalized: 0
 --- !u!1 &5873540494098886471
 GameObject:
@@ -116,7 +116,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 02a93a09bf646c9429194f9f3fb54740, type: 3}
   m_Color: {r: 1, g: 0.10363012, b: 0, a: 1}
   m_FlipX: 0
@@ -139,7 +139,6 @@ GameObject:
   - component: {fileID: 7386787101722683173}
   - component: {fileID: 7386787101722683179}
   - component: {fileID: 7386787101722683178}
-  - component: {fileID: 7386787101722683176}
   m_Layer: 5
   m_Name: Rage Meter
   m_TagString: Untagged
@@ -208,20 +207,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Rage Meter
---- !u!114 &7386787101722683176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7386787101722683172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80226fc838c0ce4468e419aa716b555e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bar: {fileID: 0}
-  sizeNormalized: 0
 --- !u!1 &7893486216627917455
 GameObject:
   m_ObjectHideFlags: 0

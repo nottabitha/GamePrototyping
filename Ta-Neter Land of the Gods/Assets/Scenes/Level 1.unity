@@ -24800,6 +24800,12 @@ PrefabInstance:
       propertyPath: hearts.Array.data[9]
       value: 
       objectReference: {fileID: 2009850707}
+    - target: {fileID: 4564179405221021323, guid: f30d36e5fdbe5fd42b5b4e79da27e3c9,
+        type: 3}
+      propertyPath: anubis
+      value: 
+      objectReference: {fileID: 5687138782717411749, guid: efb1adbd281ee9f4080488a0b06d9680,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f30d36e5fdbe5fd42b5b4e79da27e3c9, type: 3}
 --- !u!1 &2065255649 stripped
@@ -25124,11 +25130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 472511535}
     m_Modifications:
-    - target: {fileID: 5122909972574137087, guid: 73a9b092875c4c44e91517a3063c6d08,
-        type: 3}
-      propertyPath: bar
-      value: 
-      objectReference: {fileID: 7386787100242520643}
     - target: {fileID: 1717159534277836598, guid: 73a9b092875c4c44e91517a3063c6d08,
         type: 3}
       propertyPath: m_Name
@@ -25189,6 +25190,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5122909972574137087, guid: 73a9b092875c4c44e91517a3063c6d08,
+        type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 7386787100242520643}
     m_RemovedComponents:
     - {fileID: 7386787101722683176, guid: 73a9b092875c4c44e91517a3063c6d08, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 73a9b092875c4c44e91517a3063c6d08, type: 3}

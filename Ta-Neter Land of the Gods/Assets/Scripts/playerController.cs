@@ -20,6 +20,10 @@ public class playerController : MonoBehaviour
     public Animation whipColliderAnimation;
 	public AudioClip playerDeath;
     public GameObject whip;
+    public GameObject anubis;
+    public GameObject whipCheck;
+
+    private anubisScript bossScript;
     //public AudioSource footsteps;
 	//public static Rigidbody2D rb;
 
@@ -51,6 +55,8 @@ public class playerController : MonoBehaviour
             bossCutsceneObj = GameObject.Find("CameraWaypoint");
             bossCutsceneScript = bossCutsceneObj.GetComponent<bossStartCutscene>();
         }
+
+        bossScript = anubis.GetComponent<anubisScript>();
 
 
         //footsteps = GetComponent<AudioSource>();
@@ -118,6 +124,19 @@ public class playerController : MonoBehaviour
                 StartCoroutine(Invulnerability());
 				StartCoroutine(this.knockback(0.03f, 1000, player.transform.position));
             }
+        if (invulnerable == false)
+        {
+            if (collision.gameObject.tag == "Boss")
+            {
+                if (bossScript.isAttacking == true)
+                {
+                    healthScript.Health -= 1;
+                    playerAudioSource.PlayOneShot(playerHurtSound);
+                    StartCoroutine(Invulnerability());
+                    StartCoroutine(this.knockback(0.03f, 1000, player.transform.position));
+                }
+            }
+        }
 
         if (collision.gameObject.tag == "Spike")
         {
@@ -147,6 +166,7 @@ public class playerController : MonoBehaviour
         {
             attackTagCooldown = 1f;
             whip.tag = "Whip";
+            whipCheck.tag = "Whip";
             whipObject.SetActive(true);
             isAttacking = true;
             animator.SetBool("Attack", isAttacking);
@@ -162,6 +182,7 @@ public class playerController : MonoBehaviour
         }
         if (attackTagCooldown <= 0)
         {
+            whipCheck.tag = "Player";
             whip.tag = "Player";
         }
     }
