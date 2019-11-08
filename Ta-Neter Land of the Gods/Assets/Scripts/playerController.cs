@@ -22,6 +22,7 @@ public class playerController : MonoBehaviour
     public GameObject whip;
     public GameObject anubis;
     public GameObject whipCheck;
+    public GameObject canvas;
 
     private anubisScript bossScript;
     //public AudioSource footsteps;
@@ -45,11 +46,12 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     private void Awake()
     {
+        canvas = GameObject.Find("Canvas");
         whipColliderAnimation = whipObject.GetComponent<Animation>();
         currentScene = SceneManager.GetActiveScene();
 
         player = this.GetComponent<Rigidbody2D>();
-        healthScript = this.GetComponent<health>();
+        healthScript = canvas.GetComponent<health>();
         if (currentScene.name == "Level Boss")
         {
             bossCutsceneObj = GameObject.Find("CameraWaypoint");

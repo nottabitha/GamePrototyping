@@ -7,14 +7,14 @@ public class congratulationsScript : MonoBehaviour
 {
     public GameObject congratulationsUI;
     private bool congratulations = false;
-    private health anubisHealth;
+    private anubisScript anubisHealth;
     public GameObject anubis;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        anubisHealth = anubis.GetComponent<health>();
+        anubisHealth = anubis.GetComponent<anubisScript>();
         congratulationsUI.SetActive(false);
     }
 
@@ -22,7 +22,7 @@ public class congratulationsScript : MonoBehaviour
 
     void Update()
     {
-			if (anubisHealth.Health <= 0)
+			if (anubisHealth.health <= 0)
 			{
 				congratulations = true;
 			}

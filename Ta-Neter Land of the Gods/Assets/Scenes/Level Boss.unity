@@ -1064,7 +1064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &475305301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89937,7 +89937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 1480210489}
-  player: {fileID: 1033255250}
+  canvas: {fileID: 0}
   musicPlayer: {fileID: 152723189}
 --- !u!82 &1647419396
 AudioSource:

@@ -29,7 +29,7 @@ public class anubisScript : MonoBehaviour
 
     public AudioSource anubisRoar;
 
-    private float health = 1f;
+    public float health;
     private float aiCooldown;
 	public bool isAttacking = false;
 	private bool isWalking = false;
@@ -55,6 +55,9 @@ public class anubisScript : MonoBehaviour
     public Rigidbody2D anubisRB;
     public Animation laserAnimation;
     public GameObject laserEye;
+    public GameObject RageMetre;
+
+    private rageMeterScript rageMetreScript;
 
 
     void Awake()
@@ -67,11 +70,15 @@ public class anubisScript : MonoBehaviour
         laserPoint = GameObject.Find("LaserPoint");
 
         laserScript = laser.GetComponent<laser>();
-        player = GameObject.Find("Player");
+        player = GameObject.Find("PlayerPivot");
 
         healthBarObject.SetActive(false);
 
         anubisRoar = GetComponent<AudioSource>();
+
+        RageMetre = GameObject.Find("RageMeter");
+
+        rageMetreScript = RageMetre.GetComponent<rageMeterScript>();
 
         areaAttack.SetActive(false);
 
@@ -81,6 +88,10 @@ public class anubisScript : MonoBehaviour
 
         //areaAttack = GetComponent<GameObject>();
         //laserScript.enabled = false;
+
+        health = RageMetre.transform.localScale.x;
+
+        RageMetre.SetActive(false);
     }		
     // Start is called before the first frame update
     void Start()
@@ -134,7 +145,7 @@ public class anubisScript : MonoBehaviour
 
     private void TakeDamage()
     {
-        if (health > .01)
+        if (health > 0f)
         {
             health -= .05f;
             healthBar.SetSize(health);

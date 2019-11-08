@@ -8,7 +8,7 @@ public class gameOverScript : MonoBehaviour
     public GameObject gameOverUI;
     private bool gameover = false;
     private health healthScript;
-    public GameObject player;
+    public GameObject canvas;
 	public GameObject musicPlayer;
 	private AudioSource levelMusic;
 	private float originalVolume;
@@ -17,7 +17,8 @@ public class gameOverScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthScript = player.GetComponent<health>();
+        canvas = GameObject.Find("Canvas");
+        healthScript = canvas.GetComponent<health>();
         gameOverUI.SetActive(false);
 		levelMusic = musicPlayer.GetComponent<AudioSource>();
 		originalVolume = levelMusic.volume;

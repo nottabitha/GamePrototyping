@@ -24,6 +24,9 @@ public class mummyScript : MonoBehaviour
 
     void Awake()
     {
+        rageMeter = GameObject.Find("RageMeter");
+        rageMeterScript = rageMeter.GetComponent<rageMeterScript>();
+        player = GameObject.Find("PlayerPivot");
         playerScript = player.GetComponent<playerController>();
         animator = GetComponent<Animator>();
     }
@@ -131,7 +134,7 @@ public class mummyScript : MonoBehaviour
     {
         if (health <= 0)
         {
-            rageMeterScript.sizeNormalized =+ .0769f;
+            rageMeterScript.sizeNormalized -= .01f;
             Destroy(gameObject);
         }
     }

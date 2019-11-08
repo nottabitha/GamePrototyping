@@ -29,6 +29,10 @@ public class skelScript : MonoBehaviour
 
     void Awake()
     {
+        rageMeter = GameObject.Find("RageMeter");
+        rageMeterScript = rageMeter.GetComponent<rageMeterScript>();
+        player = GameObject.Find("PlayerPivot");
+
         playerScript = player.GetComponent<playerController>();
         animator = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -133,7 +137,7 @@ public class skelScript : MonoBehaviour
         if (health <= 0)
         {
 			skelAudioSource.PlayOneShot(skelDeath);
-            rageMeterScript.sizeNormalized = +.0769f;
+            rageMeterScript.sizeNormalized -= .01f;
 			Destroy(gameObject);
         }
     }

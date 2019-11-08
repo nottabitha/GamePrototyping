@@ -20,7 +20,9 @@ public class batScript : MonoBehaviour
 
     void Awake()
 	{
-		animator = GetComponent<Animator>();
+        rageMeter = GameObject.Find("RageMeter");
+        rageMeterScript = rageMeter.GetComponent<rageMeterScript>();
+        animator = GetComponent<Animator>();
 	}		
     // Start is called before the first frame update
     void Start()
@@ -111,7 +113,7 @@ public class batScript : MonoBehaviour
     {
         if (health <= 0)
         {
-            rageMeterScript.sizeNormalized = +.0769f;
+            rageMeterScript.sizeNormalized -= .01f;
             Destroy(gameObject);
         }
     }
